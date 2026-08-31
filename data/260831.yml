@@ -1,0 +1,60 @@
+about:
+  description: Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More
+  license: Apache-2.0
+  homepage: https://claude-mem.ai
+  head: fa6a1e9
+  archived: false
+  latestVersion: v13.18.0
+  collectedAt: 2026-08-31T06:00:30Z
+timeline:
+  created: 2025-08-31
+  lastCommit: 2026-08-29
+  lastRelease: 2026-08-29
+popularity:
+  star: 92686
+  watcher: 293
+  fork: 8159
+  release: 313
+  contributor: 127
+  pullRequest: 1020
+  issue: 2001
+language:
+  JavaScript: 6026335
+  TypeScript: 5332381
+  HTML: 156961
+  Shell: 137028
+  Dockerfile: 1995
+totalLine: 11654700
+recent:
+  last30d:
+    since: 2026-08-01
+    release: 11
+    mergedPR: 20
+    openPR: 138
+    closedIssue: 127
+    openIssue: 20
+    commit: 66
+  last90d:
+    since: 2026-06-02
+    release: 41
+    mergedPR: 140
+    openPR: 248
+    closedIssue: 445
+    openIssue: 22
+    commit: 381
+  last180d:
+    since: 2026-03-04
+    release: 100
+    mergedPR: 310
+    openPR: 255
+    closedIssue: 1320
+    openIssue: 22
+    commit: 827
+  last360d:
+    since: 2025-09-05
+    release: 100
+    mergedPR: 521
+    openPR: 255
+    closedIssue: 1979
+    openIssue: 22
+    commit: 2177
