@@ -40,5 +40,17 @@
   ],
   "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v13.24.5",
   "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v13.24.5",
-  "body": "## CCS Align + overnight ships\n\nFleet can install from npm again (`npx claude-mem@13.24.5` / `latest`).\n\n### Highlights since v13.24.1\n- **CCS Align Phases 0–3** (#3934–#3937) — middle cache, exclude marks, rules walker, sign-off; skill at `plugin/skills/ccs-align`\n- **Grok Bot awareness push pilot Phase 0+1** (#3931)\n- **OpenRouter daily list-price history** for expense reports (#3932)\n\nMain tip: `8bc631a7`"
+  "body": "## CCS Align + overnight ships\n\nFleet can install from npm again (`npx claude-mem@13.24.5` / `latest`).\n\n### Highlights since v13.24.1\n- **CCS Align Phases 0–3** (#3934–#3937) — middle cache, exclude marks, rules walker, sign-off; skill at `plugin/skills/ccs-align`\n- **Grok Bot awareness push pilot Phase 0+1** (#3931)\n- **OpenRouter daily list-price history** for expense reports (#3932)\n\nMain tip: `8bc631a7`",
+  "reactions": {
+    "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/385685372/reactions",
+    "total_count": 3,
+    "+1": 2,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 1,
+    "eyes": 0
+  }
 }
