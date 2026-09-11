@@ -163,4 +163,3 @@ total:
 ---
 
 ---
-{"id":386803927,"author":{"login":"cursor[bot]","id":206951365,"node_id":"BOT_kgDODFXTxQ","gravatar_id":"","type":"Bot","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOPng1J84XDijX","tag_name":"v13.24.11","target_commitish":"9841dd41203f049dbd6052dab22ef255e317fa4d","name":"v13.24.11","draft":false,"immutable":false,"prerelease":false,"created_at":"2026-09-11T05:26:10Z","updated_at":"2026-09-11T05:26:16Z","published_at":"2026-09-11T05:26:16Z","assets":[],"body":"- #3994 CLAUDE_MEM_FETCH_VERBOSE\n- #3992 ghost-gate fixture handshake\n- #3996 strip image payloads from observation prompt\n- #3998 requeue on observer transport failure\n- #3999 pause session on reactive quota error\n- #3995 fit session block to hook output limit\n- #3997 CLAUDE_MEM_SERVER_MAX_OUTPUT_TOKENS\n- #4000 configurable LLM per-attempt deadline\n\n**Full Changelog**: https://github.com/thedotmack/claude-mem/compare/v13.24.10...v13.24.11"}
