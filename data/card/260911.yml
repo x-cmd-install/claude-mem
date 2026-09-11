@@ -2,12 +2,12 @@ about:
   description: "Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More"
   license: Apache-2.0
   homepage: https://claude-mem.ai
-  head: 14447b9
+  head: ed57a51
   archived: false
-  latestVersion: "v13.24.11"
-  latestRelease: "v13.24.11"
+  latestVersion: "v13.24.23"
+  latestRelease: "v13.24.23"
   latestPrerelease: "v13.10.3-community-edge.0"
-  collectedAt: 2026-09-11T05:43:17Z
+  collectedAt: 2026-09-11T19:13:05Z
 timeline:
   created: 2025-08-31
   lastCommit: 2026-09-11
@@ -15,93 +15,93 @@ timeline:
   lastRelease: 2026-09-11
   lastPrerelease: 2026-07-09
 popularity:
-  star: 93654
-  watcher: 298
-  fork: 8233
-  release: 331
-  contributor: 142
-  pullRequest: 1666
-  issue: 2069
+  star: 93684
+  watcher: 299
+  fork: 8245
+  release: 344
+  contributor: 149
+  pullRequest: 1715
+  issue: 2073
 language:
-  JavaScript: 6480052
-  TypeScript: 6418197
+  TypeScript: 6587628
+  JavaScript: 6401279
   HTML: 188167
   Shell: 137028
   Python: 8037
   Dockerfile: 1995
-totalBytes: 13233476
+totalBytes: 13324134
 recent:
   last30d:
     since: 2026-08-12
-    release: 25
-    mergedPR: 108
-    openPR: 83
-    closedIssue: 153
-    openIssue: 16
-    commit: 0
+    release: 38
+    mergedPR: 159
+    openPR: 53
+    closedIssue: 155
+    openIssue: 18
+    commit: 271
   last60d:
     since: 2026-07-13
-    release: 35
-    mergedPR: 167
-    openPR: 172
-    closedIssue: 292
-    openIssue: 17
-    commit: 0
+    release: 48
+    mergedPR: 219
+    openPR: 130
+    closedIssue: 294
+    openIssue: 19
+    commit: 370
   last90d:
     since: 2026-06-13
-    release: 50
-    mergedPR: 218
-    openPR: 198
-    closedIssue: 440
-    openIssue: 17
-    commit: 0
+    release: 63
+    mergedPR: 271
+    openPR: 155
+    closedIssue: 442
+    openIssue: 19
+    commit: 539
   last180d:
     since: 2026-03-15
     release: 100
-    mergedPR: 395
-    openPR: 214
-    closedIssue: 1351
-    openIssue: 18
-    commit: 0
+    mergedPR: 448
+    openPR: 171
+    closedIssue: 1353
+    openIssue: 20
+    commit: 1018
   last360d:
     since: 2025-09-16
     release: 100
-    mergedPR: 624
-    openPR: 214
-    closedIssue: 2050
-    openIssue: 18
-    commit: 0
+    mergedPR: 677
+    openPR: 171
+    closedIssue: 2052
+    openIssue: 20
+    commit: 2380
   last720d:
     since: 2024-09-21
     release: 100
-    mergedPR: 625
-    openPR: 214
-    closedIssue: 2051
-    openIssue: 18
-    commit: 2632
+    mergedPR: 678
+    openPR: 171
+    closedIssue: 2053
+    openIssue: 20
+    commit: 2686
 total:
-  release: 331
-  mergedPR: 625
-  openPR: 214
-  closedIssue: 2051
-  openIssue: 18
-  commit: 2632
+  release: 344
+  mergedPR: 678
+  openPR: 171
+  closedIssue: 2053
+  openIssue: 20
+  commit: 2686
 ---
 path: /home/runner/.x-repo/github.com/thedotmack/claude-mem
-collectedAt: 2026-09-11T05:43:51Z
+collectedAt: 2026-09-11T19:13:40Z
 loc:
   TypeScript:
-    code: 138361
-    comments: 22240
-    blanks: 18909
-    files: 700
+    code: 141210
+    comments: 22927
+    blanks: 19408
+    files: 715
   JavaScript:
-    code: 19735
-    comments: 1158
-    blanks: 735
+    code: 19834
+    comments: 1186
+    blanks: 747
     files: 40
   Json:
-    code: 16011
+    code: 16012
     comments: 0
     blanks: 139
     files: 63
@@ -152,14 +152,14 @@ loc:
     files: 1
   Markdown:
     code: 0
-    comments: 27071
-    blanks: 10958
+    comments: 27143
+    blanks: 10978
     files: 144
 total:
-  code: 188341
-  comments: 51185
-  blanks: 32707
-  files: 994
+  code: 191290
+  comments: 51972
+  blanks: 33238
+  files: 1009
 ---
 
 ---
