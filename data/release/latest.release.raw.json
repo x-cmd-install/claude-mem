@@ -40,5 +40,17 @@
   ],
   "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v13.24.23",
   "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v13.24.23",
-  "body": "## 13.24.23\n\n- fix(supervisor): jail SDK subprocess cwd (#4054)\n- fix(hooks): anchor project names to Claude project dir (#4055)\n\nnpm publish is handled separately."
+  "body": "## 13.24.23\n\n- fix(supervisor): jail SDK subprocess cwd (#4054)\n- fix(hooks): anchor project names to Claude project dir (#4055)\n\nnpm publish is handled separately.",
+  "reactions": {
+    "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/387223248/reactions",
+    "total_count": 1,
+    "+1": 1,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  }
 }
