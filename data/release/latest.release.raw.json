@@ -43,8 +43,8 @@
   "body": "## 13.24.23\n\n- fix(supervisor): jail SDK subprocess cwd (#4054)\n- fix(hooks): anchor project names to Claude project dir (#4055)\n\nnpm publish is handled separately.",
   "reactions": {
     "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/387223248/reactions",
-    "total_count": 1,
-    "+1": 1,
+    "total_count": 2,
+    "+1": 2,
     "-1": 0,
     "laugh": 0,
     "hooray": 0,
