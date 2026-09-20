@@ -4,7 +4,7 @@
 
 Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More
 
-![claude-mem](https://repo.x-cmd.io/claude-mem.svg)
+[![x-cmd/install — claude-mem Code Quality Monitoring Repo Card](https://repo.x-cmd.io/claude-mem.svg)](https://x-cmd.com/install/claude-mem)
 
 ## Install
 
@@ -14,12 +14,12 @@ x install claude-mem
 
 ## Code insight
 
-Total: **187,509** lines of code across **859** files in the top 5 languages.
+Total: **187,620** lines of code across **859** files in the top 5 languages.
 
 | Language | Code | Comments | Blanks | Files |
 |----------|-----:|---------:|-------:|------:|
-| TypeScript | 144,819 | 23,181 | 19,893 | 732 |
-| JavaScript | 19,960 | 1,189 | 736 | 40 |
+| TypeScript | 144,929 | 23,206 | 19,914 | 732 |
+| JavaScript | 19,961 | 1,189 | 736 | 40 |
 | Json | 16,024 | 0 | 139 | 63 |
 | Sh | 3,602 | 45 | 679 | 9 |
 | Tsx | 2,044 | 4 | 182 | 15 |
@@ -33,26 +33,26 @@ Total: **187,509** lines of code across **859** files in the top 5 languages.
 ## Release
 
 - **Latest**: `v13.24.23` (2026-09-11)
-- **Last commit**: 2026-09-16
+- **Last commit**: 2026-09-19
 
 ## Popularity
 
-- **Stars**: 94,146 · **Forks**: 8,310 · **Open issues**: 2,099 · **Contributors**: 154
+- **Stars**: 94,294 · **Forks**: 8,322 · **Open issues**: 2,108 · **Contributors**: 154
 
 ## Totals (cumulative)
 
-- **Releases**: 344 · **Merged PRs**: 691 · **Open PRs**: 175 · **Closed issues**: 2065 · **Open issues**: 34 · **Commits**: 2699
+- **Releases**: 344 · **Merged PRs**: 694 · **Open PRs**: 186 · **Closed issues**: 2065 · **Open issues**: 43 · **Commits**: 2702
 
 ## Recent activity
 
 | Window | Since | Releases | Merged PRs | Open PRs | Closed issues | Open issues | Commits |
 |---|---|---:|---:|---:|---:|---:|---:|
-| 30d | 2026-08-19 | 37 | 153 | 49 | 142 | 21 | 244 |
-| last60d | 2026-07-20 | 47 | 202 | 117 | 266 | 33 | 327 |
-| 90d | 2026-06-20 | 59 | 275 | 159 | 405 | 33 | 528 |
-| last180d | 2026-03-22 | 100 | 454 | 175 | 1318 | 34 | 1006 |
-| 360d | 2025-09-23 | 100 | 690 | 175 | 2064 | 34 | 2392 |
-| last720d | 2024-09-28 | 100 | 691 | 175 | 2065 | 34 | 2699 |
+| 30d | 2026-08-21 | 36 | 156 | 55 | 134 | 30 | 247 |
+| last60d | 2026-07-22 | 47 | 198 | 127 | 254 | 42 | 330 |
+| 90d | 2026-06-22 | 56 | 276 | 169 | 400 | 42 | 531 |
+| last180d | 2026-03-24 | 100 | 455 | 186 | 1305 | 43 | 1009 |
+| 360d | 2025-09-25 | 100 | 693 | 186 | 2064 | 43 | 2395 |
+| last720d | 2024-09-30 | 100 | 694 | 186 | 2065 | 43 | 2702 |
 
 ## Improve this data
 
@@ -63,4 +63,4 @@ Install metadata for claude-mem lives in the [x-cmd/install](https://github.com/
 
 The data on this page (card / loc / scorecard / release) is auto-collected by [x-cmd-install-action](https://github.com/x-cmd-install/x-cmd-install-action) and is regenerated daily. Improvements to *install behaviour* (which version gets installed, platform-specific quirks, dependencies) belong upstream in the index.
 
-_Snapshot: `data/card/260918.yml` · 2026-09-18T05:59:12Z._
+_Snapshot: `data/card/260920.yml` · 2026-09-20T06:16:11Z._
