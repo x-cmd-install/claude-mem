@@ -4,7 +4,7 @@
 
 Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More
 
-[![x-cmd/install — claude-mem Code Quality Monitoring Repo Card](https://repo.x-cmd.io/claude-mem.svg?lang=zh)](https://x-cmd.com/install/claude-mem)
+[![x-cmd/install — claude-mem Code Quality Monitoring Repo Card](https://x-cmd.com/repo-card/claude-mem.svg?lang=zh)](https://x-cmd.com/install/claude-mem)
 
 ## 安装
 
@@ -37,22 +37,22 @@ x install claude-mem
 
 ## 流行度
 
-- **Star**: 94,432 · **Fork**: 8,347 · **开放 issue**: 2,116 · **贡献者**: 154
+- **Star**: 94,502 · **Fork**: 8,359 · **开放 issue**: 2,121 · **贡献者**: 154
 
 ## 累计统计
 
-- **发布数**: 345 · **已合并 PR**: 697 · **开放 PR**: 224 · **已关闭 issue**: 2065 · **开放 issue**: 51 · **提交数**: 2706
+- **发布数**: 345 · **已合并 PR**: 697 · **开放 PR**: 232 · **已关闭 issue**: 2065 · **开放 issue**: 56 · **提交数**: 2706
 
 ## 最近活动
 
 | 时间窗口 | 起始 | 发布 | 已合并 PR | 开放 PR | 已关闭 issue | 开放 issue | 提交 |
 |---|---|---:|---:|---:|---:|---:|---:|
-| 30d | 2026-08-23 | 37 | 158 | 89 | 119 | 38 | 233 |
-| last60d | 2026-07-24 | 43 | 191 | 159 | 242 | 49 | 304 |
-| 90d | 2026-06-24 | 57 | 278 | 205 | 395 | 50 | 513 |
-| last180d | 2026-03-26 | 100 | 455 | 224 | 1289 | 51 | 990 |
-| 360d | 2025-09-27 | 100 | 696 | 224 | 2064 | 51 | 2398 |
-| last720d | 2024-10-02 | 100 | 697 | 224 | 2065 | 51 | 2706 |
+| 30d | 2026-08-24 | 37 | 158 | 97 | 113 | 43 | 233 |
+| last60d | 2026-07-25 | 43 | 189 | 166 | 238 | 54 | 304 |
+| 90d | 2026-06-25 | 57 | 278 | 213 | 389 | 55 | 513 |
+| last180d | 2026-03-27 | 100 | 453 | 232 | 1285 | 56 | 990 |
+| 360d | 2025-09-28 | 100 | 696 | 232 | 2064 | 56 | 2398 |
+| last720d | 2024-10-03 | 100 | 697 | 232 | 2065 | 56 | 2706 |
 
 ## 改进这些数据
 
@@ -63,4 +63,4 @@ claude-mem 的安装元数据由 [x-cmd/install](https://github.com/x-cmd/instal
 
 本页面的数据（card / loc / scorecard / release）由 [x-cmd-install-action](https://github.com/x-cmd-install/x-cmd-install-action) 自动采集，每日重新生成。**安装行为**（版本选择、平台差异、依赖处理）的改进应提交到上游索引。
 
-_数据快照: `data/card/260922.yml` · 2026-09-22T06:02:00Z._
+_数据快照: `data/card/260923.yml` · 2026-09-23T06:09:41Z._
