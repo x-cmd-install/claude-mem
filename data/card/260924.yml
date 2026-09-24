@@ -163,4 +163,3 @@ total:
 ---
 
 ---
-{"id":393358284,"author":{"login":"thedotmack","id":683968,"node_id":"MDQ6VXNlcjY4Mzk2OA==","gravatar_id":"","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOPng1J84XcivM","tag_name":"v13.25.3","target_commitish":"4520de9e0f8d6cdc20597520e383d8b51d93137f","name":"v13.25.3","draft":false,"immutable":false,"prerelease":false,"created_at":"2026-09-21T23:27:32Z","updated_at":"2026-09-21T23:28:05Z","published_at":"2026-09-21T23:28:05Z","assets":[],"body":"## 13.25.3\n\n- security: harden unauthenticated settings writes and telemetry error scrubbing (#4166)\n\nnpm publish is handled separately.","reactions":{"total_count":4,"+1":3,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":1,"eyes":0}}
