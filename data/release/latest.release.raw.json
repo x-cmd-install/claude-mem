@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/397105809",
-  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/397105809/assets",
-  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/397105809/assets{?name,label}",
-  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.26.0",
-  "id": 397105809,
+  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/397351603",
+  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/397351603/assets",
+  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/397351603/assets{?name,label}",
+  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.28.0",
+  "id": 397351603,
   "author": {
     "login": "thedotmack",
     "id": 683968,
@@ -25,20 +25,32 @@
     "user_view_type": "public",
     "site_admin": false
   },
-  "node_id": "RE_kwDOPng1J84Xq1qR",
-  "tag_name": "v13.26.0",
+  "node_id": "RE_kwDOPng1J84Xrxqz",
+  "tag_name": "v13.28.0",
   "target_commitish": "main",
-  "name": "v13.26.0",
+  "name": "v13.28.0",
   "draft": false,
   "immutable": false,
   "prerelease": false,
-  "created_at": "2026-09-26T05:33:08Z",
-  "updated_at": "2026-09-26T05:33:20Z",
-  "published_at": "2026-09-26T05:33:20Z",
+  "created_at": "2026-09-26T18:36:55Z",
+  "updated_at": "2026-09-26T18:37:19Z",
+  "published_at": "2026-09-26T18:37:19Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v13.26.0",
-  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v13.26.0",
-  "body": "## CMEM Pro cloud sync moves off Cloudflare\n\nThe old Cloudflare Worker hub (`sync-hub.black-pond-afbb.workers.dev`) was failing every request because it hit Cloudflare Free plan caps. Cloud sync now runs on a new protocol-v2 hub at **https://sync.cmem.ai** (Fly + Neon Postgres).\n\n### Plugin changes\n- **Automatic hub URL migration:** on startup, a `CLAUDE_MEM_CLOUD_SYNC_HUB_URL` that still points at the legacy workers.dev host is rewritten to `https://sync.cmem.ai`. You don't need to reconnect.\n- **Retry-After backoff:** cloud sync now honors `Retry-After` on 429/503 responses and stops hammering the hub.\n- **Looser checkpoint check:** the push checkpoint validation is more tolerant, so a hub that moved no longer wedges sync.\n\n### Infrastructure (#4232, #4233)\n- New `services/sync-api`: a protocol-v2 port of `workers/sync-hub` on Postgres.\n- The Worker gets `FORWARD_ORIGIN` pass-through mode, which proxies every request to the new hub and touches no Durable Objects or KV.\n"
+  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v13.28.0",
+  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v13.28.0",
+  "body": "## Non-interactive installs now finish, and capture the signup\n\n`npx claude-mem install` run without a TTY (an AI agent, CI, a script) used to stop on \"provider must be explicit\". It now completes on its own and still gives the user a way to sign in afterwards.\n\n### Installer\n\n- **Provider resolves instead of aborting.** A fresh non-interactive install with no `--provider` defaults to your Anthropic plan (local memory). An existing config keeps its saved provider, so `npx claude-mem update` never flips a CMEM Pro install to something else.\n- **Saved personal providers are validated, not assumed.** A kept `gemini` / `openrouter` provider needs a usable key: saved in `~/.claude-mem/settings.json`, or exported in the environment. A saved CMEM gateway config still requires its saved key, because the worker locks that tuple to the key on disk (an exported replacement base URL and key together are accepted).\n- **Deferred sign-in link.** Every non-interactive install that skipped sign-in prints an optional sign-in link as its last line, after the success line, so an agent relaying the output can show it to the user. It is best-effort, never changes the exit status, and is skipped when `CI` is set.\n- **30-minute browser sign-in wait.** Interactive OAuth polling now honours the pairing's `expires_in` (capped at 30 minutes; 4 minutes when the server reports none) instead of a fixed short budget.\n- **Persisted providers skip the blocking OAuth gate.** A non-interactive run that reuses a saved account-backed provider no longer opens a browser and polls until the pairing expires.\n- **Accurate install summary.** The `Account:` line reflects whether a login actually ran: `OAuth login complete`, `Kept existing account (no login this run)`, or `Not required (local provider / host observer)`.\n- **Provider error labels.** OAuth start failures are classified as `http_error` / `network` / `timeout` / `bad_body`; an abort that fires while the 2xx body is still streaming is a `timeout`, not `bad_body`.\n\n### Telemetry\n\n- New events: `installer_oauth_start_failed` (`outcome`, `interactive`, `phase`: login / deferred) and `installer_oauth_deferred` (`interactive`, always `false`).\n- `install_completed` gains `provider_source`: `flag` / `default` / `persisted` / `prompt`.\n- `installer_oauth_timeout` gains `phase` (login / enrollment).\n- The installer scrubber drops persisted key values before any event leaves the machine.\n\n### Privacy note\n\nLocal installs contact cmem.ai once, at signup, to create the sign-in link. Nothing else is sent to cmem.ai. Product telemetry is a separate, opt-out channel (`npx claude-mem telemetry`). The public docs, the `/how-it-works` skill, and the installer summary line now all say this plainly.\n\n### Docs\n\n- Installation, CMEM Pro headless, Cursor, and Telemetry pages updated for the non-interactive flow, the deferred link, and the new events.\n\n**Full Changelog**: https://github.com/thedotmack/claude-mem/compare/v13.27.1...v13.28.0\n",
+  "reactions": {
+    "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/397351603/reactions",
+    "total_count": 2,
+    "+1": 2,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  }
 }
