@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/411215334",
-  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/411215334/assets",
-  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/411215334/assets{?name,label}",
-  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.37.0",
-  "id": 411215334,
+  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/412128024",
+  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/412128024/assets",
+  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/412128024/assets{?name,label}",
+  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.39.0",
+  "id": 412128024,
   "author": {
     "login": "thedotmack",
     "id": 683968,
@@ -25,21 +25,32 @@
     "user_view_type": "public",
     "site_admin": false
   },
-  "node_id": "RE_kwDOPng1J84YgqXm",
-  "tag_name": "v13.37.0",
+  "node_id": "RE_kwDOPng1J84YkJMY",
+  "tag_name": "v13.39.0",
   "target_commitish": "main",
-  "name": "v13.37.0",
+  "name": "v13.39.0",
   "draft": false,
   "immutable": false,
   "prerelease": false,
-  "created_at": "2026-10-13T03:06:39Z",
-  "updated_at": "2026-10-13T03:07:09Z",
-  "published_at": "2026-10-13T03:07:09Z",
+  "created_at": "2026-10-13T21:31:26Z",
+  "updated_at": "2026-10-13T21:31:41Z",
+  "published_at": "2026-10-13T21:31:41Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v13.37.0",
-  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v13.37.0",
-  "body": "This release fixes the broken 13.36.1 marketplace update. After that update, the worker, the MCP search server and the server runtime failed to start, so memory capture stopped. Upgrading is strongly recommended.\n\n## Fixes\n\n- **claude-mem starts again after the 13.36.1 marketplace update** (#4728, #4729). A change merged after the 13.36.1 release committed the built plugin files with leftover `git stash` conflict markers. The plugin installs from `main`, so auto-updated installs got those files under the same 13.36.1 version number. The worker failed with `error: Unexpected <<`, `mcp-search` closed its connection, and memory capture stopped once the older worker exited. The files are now rebuilt from clean source. The npm package `claude-mem@13.36.1` was published before that change and was not affected. Thank you @nashsibanda for the rebuild and @hirohisatanigawa for the detailed report.\n- **Worker startup waits out a locked database instead of failing** (#4725). The schema-writer check added in 13.36.0 ran before the connection's busy timeout was set. A worker starting while another process was opening the same database failed in about 1 ms with `database is locked`, and after two failures it was not restarted. The check now waits for the lock.\n\n## Changed\n\n- **Memory keeps capturing on your Anthropic plan when your selected provider can't serve** (#4727). `CLAUDE_MEM_QUOTA_FALLBACK_PROVIDER` now defaults to `claude`. Settings files that saved `\"\"` get the new default too. The fallback now also covers a provider that is still rate limited or over capacity after its retries, is down, or returns the same batch twice with no usable output. Claude is used only when a Claude Code login or an Anthropic key is available. Memory moves back to your provider once it answers again. To wait for your provider instead, set `CLAUDE_MEM_QUOTA_FALLBACK_PROVIDER` to `off`.\n\n## Release safety\n\n- CI now checks the committed plugin files before it rebuilds them. It fails on merge-conflict markers anywhere in `plugin/` and runs `node --check` on every committed plugin script (#4729). Before this, CI rebuilt the bundles first and tested the rebuilt copies, which hid the broken committed ones.\n\n## If you used the 13.35.0 workaround\n\nIf you followed the workaround in #4728 (auto-update turned off and the plugin pinned to 13.35.0), turn `autoUpdate` back on for the `thedotmack` marketplace and restart Claude Code to move to 13.37.0.\n\n**Full diff:** https://github.com/thedotmack/claude-mem/compare/v13.36.1...v13.37.0\n",
-  "mentions_count": 2
+  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v13.39.0",
+  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v13.39.0",
+  "body": "## Codex: memory timeline returns to subagent threads after compaction\n\nWhen Codex compacts a thread, the memory timeline drops out of its history. The root thread already got it back through `SessionStart` (source `compact`). Codex never sends `SessionStart` to subagent threads, though, so a subagent that compacted kept working without its memory.\n\n- A new **PostCompact** hook marks the compacted thread, keyed by `session_id` plus `agent_id`.\n- That thread's next **PostToolUse** records the observation as usual, consumes the marker, and returns the timeline once as `additionalContext`.\n- **SessionStart** clears the marker, so the root thread never gets the timeline twice.\n- Shared session-marker file handling now backs both the Codex compaction gate and the Kimi context gate.\n\nPR: #4733\n",
+  "reactions": {
+    "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/412128024/reactions",
+    "total_count": 2,
+    "+1": 2,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  }
 }
