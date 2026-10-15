@@ -43,13 +43,13 @@
   "body": "## Codex: memory timeline returns to subagent threads after compaction\n\nWhen Codex compacts a thread, the memory timeline drops out of its history. The root thread already got it back through `SessionStart` (source `compact`). Codex never sends `SessionStart` to subagent threads, though, so a subagent that compacted kept working without its memory.\n\n- A new **PostCompact** hook marks the compacted thread, keyed by `session_id` plus `agent_id`.\n- That thread's next **PostToolUse** records the observation as usual, consumes the marker, and returns the timeline once as `additionalContext`.\n- **SessionStart** clears the marker, so the root thread never gets the timeline twice.\n- Shared session-marker file handling now backs both the Codex compaction gate and the Kimi context gate.\n\nPR: #4733\n",
   "reactions": {
     "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/412128024/reactions",
-    "total_count": 2,
-    "+1": 2,
+    "total_count": 5,
+    "+1": 3,
     "-1": 0,
     "laugh": 0,
     "hooray": 0,
     "confused": 0,
-    "heart": 0,
+    "heart": 2,
     "rocket": 0,
     "eyes": 0
   }
