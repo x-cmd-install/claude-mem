@@ -43,14 +43,14 @@
   "body": "Cards keep the agent who did the work when new updates arrive, instead of showing Unassigned work.",
   "reactions": {
     "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/415926495/reactions",
-    "total_count": 2,
+    "total_count": 3,
     "+1": 2,
     "-1": 0,
     "laugh": 0,
     "hooray": 0,
     "confused": 0,
     "heart": 0,
-    "rocket": 0,
+    "rocket": 1,
     "eyes": 0
   }
 }
