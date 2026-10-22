@@ -37,22 +37,22 @@ Total: **388,079** lines of code across **1983** files in the top 5 languages.
 
 ## Popularity
 
-- **Stars**: 102,003 · **Forks**: 8,980 · **Open issues**: 2,258 · **Contributors**: 283
+- **Stars**: 102,184 · **Forks**: 9,002 · **Open issues**: 2,266 · **Contributors**: 283
 
 ## Totals (cumulative)
 
-- **Releases**: 372 · **Merged PRs**: 1389 · **Open PRs**: 60 · **Closed issues**: 2214 · **Open issues**: 44 · **Commits**: 3504
+- **Releases**: 372 · **Merged PRs**: 1389 · **Open PRs**: 71 · **Closed issues**: 2215 · **Open issues**: 51 · **Commits**: 3504
 
 ## Recent activity
 
 | Window | Since | Releases | Merged PRs | Open PRs | Closed issues | Open issues | Commits |
 |---|---|---:|---:|---:|---:|---:|---:|
-| 30d | 2026-09-21 | 28 | 535 | 35 | 118 | 25 | 763 |
-| last60d | 2026-08-22 | 64 | 747 | 43 | 281 | 31 | 1016 |
-| 90d | 2026-07-23 | 74 | 838 | 52 | 395 | 42 | 1075 |
-| last180d | 2026-04-24 | 100 | 1068 | 60 | 1089 | 44 | 1530 |
-| 360d | 2025-10-26 | 100 | 1383 | 60 | 2200 | 44 | 2960 |
-| last720d | 2024-10-31 | 100 | 1389 | 60 | 2214 | 44 | 3504 |
+| 30d | 2026-09-22 | 27 | 529 | 45 | 115 | 30 | 763 |
+| last60d | 2026-08-23 | 64 | 746 | 52 | 269 | 38 | 1016 |
+| 90d | 2026-07-24 | 70 | 833 | 62 | 392 | 49 | 1075 |
+| last180d | 2026-04-25 | 100 | 1063 | 71 | 1081 | 51 | 1530 |
+| 360d | 2025-10-27 | 100 | 1382 | 71 | 2198 | 51 | 2960 |
+| last720d | 2024-11-01 | 100 | 1389 | 71 | 2215 | 51 | 3504 |
 
 ## Improve this data
 
@@ -63,4 +63,4 @@ Install metadata for claude-mem lives in the [x-cmd/install](https://github.com/
 
 The data on this page (card / loc / scorecard / release) is auto-collected by [x-cmd-install-action](https://github.com/x-cmd-install/x-cmd-install-action) and is regenerated daily. Improvements to *install behaviour* (which version gets installed, platform-specific quirks, dependencies) belong upstream in the index.
 
-_Snapshot: `data/card/261021.yml` · 2026-10-21T05:38:39Z._
+_Snapshot: `data/card/261022.yml` · 2026-10-22T05:39:11Z._
