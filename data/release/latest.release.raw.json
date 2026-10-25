@@ -40,5 +40,17 @@
   ],
   "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.0.2",
   "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.0.2",
-  "body": "# Stop observer reasoning from consuming the output budget\n\nObserver requests to OpenRouter, the cmem.ai gateway, and OpenAI-compatible endpoints now disable reasoning by default, so reasoning tokens no longer fill the output budget and leave a session with zero observations.\n\n- An empty reply with finish_reason=length is logged and retried once with reasoning forced off. That retry counts against the existing paid-send budget and is bounded by the per-attempt timeout.\n- Billed usage keeps the retry's prompt size and adds completion tokens and cost from both attempts.\n- Health status names the active OpenRouter credential, including a custom OPENROUTER_BASE_URL.\n- OpenAI \"Unsupported parameter\" responses drop the reasoning field and remember the endpoint. Mandatory-reasoning and invalid-effort refusals are left in place.\n- Empty replies that finish with stop stay accepted.\n\nShips the observer repair from #5029."
+  "body": "# Stop observer reasoning from consuming the output budget\n\nObserver requests to OpenRouter, the cmem.ai gateway, and OpenAI-compatible endpoints now disable reasoning by default, so reasoning tokens no longer fill the output budget and leave a session with zero observations.\n\n- An empty reply with finish_reason=length is logged and retried once with reasoning forced off. That retry counts against the existing paid-send budget and is bounded by the per-attempt timeout.\n- Billed usage keeps the retry's prompt size and adds completion tokens and cost from both attempts.\n- Health status names the active OpenRouter credential, including a custom OPENROUTER_BASE_URL.\n- OpenAI \"Unsupported parameter\" responses drop the reasoning field and remember the endpoint. Mandatory-reasoning and invalid-effort refusals are left in place.\n- Empty replies that finish with stop stay accepted.\n\nShips the observer repair from #5029.",
+  "reactions": {
+    "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/422199378/reactions",
+    "total_count": 3,
+    "+1": 3,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  }
 }
