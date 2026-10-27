@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/423622067",
-  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/423622067/assets",
-  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/423622067/assets{?name,label}",
-  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.2.1",
-  "id": 423622067,
+  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/424893088",
+  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/424893088/assets",
+  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/424893088/assets{?name,label}",
+  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.3.0",
+  "id": 424893088,
   "author": {
     "login": "thedotmack",
     "id": 683968,
@@ -25,20 +25,20 @@
     "user_view_type": "public",
     "site_admin": false
   },
-  "node_id": "RE_kwDOPng1J84ZP_Wz",
-  "tag_name": "v15.2.1",
+  "node_id": "RE_kwDOPng1J84ZU1qg",
+  "tag_name": "v15.3.0",
   "target_commitish": "main",
-  "name": "v15.2.1 — npm trusted publishing",
+  "name": "v15.3.0",
   "draft": false,
   "immutable": false,
   "prerelease": false,
-  "created_at": "2026-10-25T19:45:20Z",
-  "updated_at": "2026-10-25T19:45:33Z",
-  "published_at": "2026-10-25T19:45:33Z",
+  "created_at": "2026-10-26T23:56:54Z",
+  "updated_at": "2026-10-26T23:57:00Z",
+  "published_at": "2026-10-26T23:57:00Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.2.1",
-  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.2.1",
-  "body": "## What changed\n\n- **npm publishing now uses trusted publishing (OIDC).** The \"Publish to npm\" GitHub Actions workflow authenticates to npm with a short-lived OIDC token issued for this repository's workflow instead of the long-lived `NPM_TOKEN` secret, which had been failing on every tag since v13.26.1. Trusted publishes also carry an npm provenance attestation linking the package to the commit and workflow that built it. (#5063)\n\nNo runtime behavior changes in the plugin or worker; this release exists to ship through the new publishing path.\n\n**Full Changelog**: https://github.com/thedotmack/claude-mem/compare/v15.2.0...v15.2.1"
+  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.3.0",
+  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.3.0",
+  "body": "## What changed\n\n### Deliverables on the My Work card (#5109)\n\nAsk an agent for a deck, a report, an HTML page or any other file, and it is one click away on the front of the request's card in My Work, under **Deliverables**.\n\n- **The Stop hook copies what the turn made for you** into `~/.claude-mem/deliverables/<project>/`, content-addressed (`report-3f9a1c2b.md`), so the copy outlives the worktree, scratch folder or temp directory it was made in. Files an agent attaches through `work_state_write` (`work_product`, `deliverable`, or any field naming a file a person opens) count, as do decks, documents, pages, images, video and spreadsheets written outside the source tree. Source files are never copied by inference. SubagentStop captures what a subagent made from its own transcript.\n- **The worker records and serves each copy** at `GET /api/deliverables/:id/:filename`, with the same loopback, same-origin and sandbox rules as recorded files; markdown and text open inline. While a copy is on disk and the file has not been written since, it stands in for the record of where the file was made.\n- **Privacy and limits are explicit.** A turn whose prompt is entirely `<private>` leaves no copy and no record. Nothing is copied for a worker on another host, which could not open the copy. 50 files per Stop and 512 MiB per file, reported when hit, never silent. `CLAUDE_MEM_DELIVERABLES_ENABLED=false` turns the copy off.\n- The SessionStart work-state rule now asks agents to write the thing you asked for as a file and attach it as `work_product` before they finish.\n\n### Also new\n\n- **Automatic local database snapshots** with crash-safe restore: `npx claude-mem backup [run|status|list]` and `npx claude-mem restore`. Off by default; `CLAUDE_MEM_BACKUP_ENABLED=true` with `CLAUDE_MEM_BACKUP_INTERVAL_HOURS` and `CLAUDE_MEM_BACKUP_RETAIN_COUNT`. (#3751)\n- **Notion export.** Each new observation is upserted into a Notion database as soon as it is stored. Opt-in through `CLAUDE_MEM_NOTION_ENABLED`, a token and a database id; never blocks capture. (#4799)\n- **Codex subagents start with the memory timeline.** A new `SubagentStart` hook gives a fresh subagent the same context SessionStart gives a session; forks, which inherit their parent's history, are skipped. Codex asks once to trust the new hook. (#4760)\n- **Runcrate preset** for the openai-compatible provider. (#5067)\n\n### Fixes\n\n- **Antigravity CLI:** claude-mem no longer registers `PreToolUse`, which auto-approved every agy tool call and queued each call twice (#5085). agy prompts are now recorded once per turn, so agy work shows up in My Work, and files read in agy get their observation history (#5092).\n- **Redaction:** temporary AWS credentials are redacted in full: ASIA access key IDs, session tokens, and the SecretAccessKey in `aws sts` JSON output (#5066, #5073, #5080).\n- **Transcripts:** watcher checkpoints are held until buffered work is stored (#5072); the transcript-watch config path follows `CLAUDE_MEM_DATA_DIR` (#5070).\n- **Observer parser:** reads the type the model settled on, never markup around it (#5077).\n- **Windows:** the launcher compiles through the 8.3 short path when `bun.exe` is on a non-ASCII path (#5089).\n- **SessionStart** terminal preview leaves room for its footer (#5084); install help says which providers need a cmem.ai sign-in (#5086).\n- **Release tooling:** every shipped plugin manifest carries the same version, synced by the build and checked in CI (#5083, #5082, #5075).\n\n**Full Changelog**: https://github.com/thedotmack/claude-mem/compare/v15.2.1...v15.3.0\n"
 }
