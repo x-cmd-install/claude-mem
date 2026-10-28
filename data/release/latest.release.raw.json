@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/424893088",
-  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/424893088/assets",
-  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/424893088/assets{?name,label}",
-  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.3.0",
-  "id": 424893088,
+  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/426236451",
+  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/426236451/assets",
+  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/426236451/assets{?name,label}",
+  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.4.0",
+  "id": 426236451,
   "author": {
     "login": "thedotmack",
     "id": 683968,
@@ -25,20 +25,20 @@
     "user_view_type": "public",
     "site_admin": false
   },
-  "node_id": "RE_kwDOPng1J84ZU1qg",
-  "tag_name": "v15.3.0",
+  "node_id": "RE_kwDOPng1J84ZZ9oj",
+  "tag_name": "v15.4.0",
   "target_commitish": "main",
-  "name": "v15.3.0",
+  "name": "v15.4.0",
   "draft": false,
   "immutable": false,
   "prerelease": false,
-  "created_at": "2026-10-26T23:56:54Z",
-  "updated_at": "2026-10-26T23:57:00Z",
-  "published_at": "2026-10-26T23:57:00Z",
+  "created_at": "2026-10-28T03:35:29Z",
+  "updated_at": "2026-10-28T03:38:07Z",
+  "published_at": "2026-10-28T03:38:07Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.3.0",
-  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.3.0",
-  "body": "## What changed\n\n### Deliverables on the My Work card (#5109)\n\nAsk an agent for a deck, a report, an HTML page or any other file, and it is one click away on the front of the request's card in My Work, under **Deliverables**.\n\n- **The Stop hook copies what the turn made for you** into `~/.claude-mem/deliverables/<project>/`, content-addressed (`report-3f9a1c2b.md`), so the copy outlives the worktree, scratch folder or temp directory it was made in. Files an agent attaches through `work_state_write` (`work_product`, `deliverable`, or any field naming a file a person opens) count, as do decks, documents, pages, images, video and spreadsheets written outside the source tree. Source files are never copied by inference. SubagentStop captures what a subagent made from its own transcript.\n- **The worker records and serves each copy** at `GET /api/deliverables/:id/:filename`, with the same loopback, same-origin and sandbox rules as recorded files; markdown and text open inline. While a copy is on disk and the file has not been written since, it stands in for the record of where the file was made.\n- **Privacy and limits are explicit.** A turn whose prompt is entirely `<private>` leaves no copy and no record. Nothing is copied for a worker on another host, which could not open the copy. 50 files per Stop and 512 MiB per file, reported when hit, never silent. `CLAUDE_MEM_DELIVERABLES_ENABLED=false` turns the copy off.\n- The SessionStart work-state rule now asks agents to write the thing you asked for as a file and attach it as `work_product` before they finish.\n\n### Also new\n\n- **Automatic local database snapshots** with crash-safe restore: `npx claude-mem backup [run|status|list]` and `npx claude-mem restore`. Off by default; `CLAUDE_MEM_BACKUP_ENABLED=true` with `CLAUDE_MEM_BACKUP_INTERVAL_HOURS` and `CLAUDE_MEM_BACKUP_RETAIN_COUNT`. (#3751)\n- **Notion export.** Each new observation is upserted into a Notion database as soon as it is stored. Opt-in through `CLAUDE_MEM_NOTION_ENABLED`, a token and a database id; never blocks capture. (#4799)\n- **Codex subagents start with the memory timeline.** A new `SubagentStart` hook gives a fresh subagent the same context SessionStart gives a session; forks, which inherit their parent's history, are skipped. Codex asks once to trust the new hook. (#4760)\n- **Runcrate preset** for the openai-compatible provider. (#5067)\n\n### Fixes\n\n- **Antigravity CLI:** claude-mem no longer registers `PreToolUse`, which auto-approved every agy tool call and queued each call twice (#5085). agy prompts are now recorded once per turn, so agy work shows up in My Work, and files read in agy get their observation history (#5092).\n- **Redaction:** temporary AWS credentials are redacted in full: ASIA access key IDs, session tokens, and the SecretAccessKey in `aws sts` JSON output (#5066, #5073, #5080).\n- **Transcripts:** watcher checkpoints are held until buffered work is stored (#5072); the transcript-watch config path follows `CLAUDE_MEM_DATA_DIR` (#5070).\n- **Observer parser:** reads the type the model settled on, never markup around it (#5077).\n- **Windows:** the launcher compiles through the 8.3 short path when `bun.exe` is on a non-ASCII path (#5089).\n- **SessionStart** terminal preview leaves room for its footer (#5084); install help says which providers need a cmem.ai sign-in (#5086).\n- **Release tooling:** every shipped plugin manifest carries the same version, synced by the build and checked in CI (#5083, #5082, #5075).\n\n**Full Changelog**: https://github.com/thedotmack/claude-mem/compare/v15.2.1...v15.3.0\n"
+  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.4.0",
+  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.4.0",
+  "body": "## My Work: focus areas, and requests that file themselves\n\n### Focus areas are the top level of My Work (#5131)\n- **MY FOCUS rail.** Your focus areas are listed in priority order, with a needs-you count on each. Every request sits in exactly one area, or in **Other**. On phones the areas appear as a chip row.\n- **Area header.** Each area page shows its goal sentence, combined progress, your own quotes, the asks you haven't started yet, and a link to Past focus. The My Goals page is retired; its content now lives here.\n- **Suggested.** New areas appear here by themselves. You can Keep, Rename, Merge or Dismiss each one, with Undo. Your decisions sync across computers and a refresh never overrides them.\n- **Owner-goals sorts what it mines.** It applies three tests in order, so each statement becomes exactly one focus area, ask or rule. Priorities and open asks no longer duplicate each other.\n- **The Focus step replaces Align in the automatic refresh.** It places every request, and it proposes new areas from Other or from a request that holds several separate asks.\n- **Request cards.** Every card shows its area, and request detail has **Move to…**. \"What came out of it\" is now called **Deliverables**.\n\n### The judge files new conversations under their request (#5110)\n- **Before any grouping agent runs,** each new conversation is filed: a code link (the same work-state list or `request_id`) joins at once. On CMEM Pro, or with your own OpenRouter key, Jev also checks whether the conversation continues one of your open requests. At a check score of 0.8 or more it joins. Between 0.5 and 0.8 you get a **Join / Not this** suggestion on the card. Otherwise it starts its own request.\n- **Focus areas too.** On the same installs, Jev suggests a focus area for each request before the Focus step runs. The pick is only a hint to the Focus agent for now: automatic placement waits until enough of your own moves exist to calibrate a cutoff.\n- **Without Jev,** everything works as before.\n\n### A request keeps its conversations across project roots (#5106)\n- A request whose decision names its project root keeps conversations from other roots, and later refreshes can still add to it.\n\n### Fixes\n- The sync-api query-plan test applies its own schema, so it no longer fails depending on test order.\n\n**CMEM Pro:** the Jev decisions gateway (`/api/inference/v1/decisions`) is live for Pro subscribers.\n"
 }
