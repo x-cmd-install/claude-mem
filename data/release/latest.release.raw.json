@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/426236451",
-  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/426236451/assets",
-  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/426236451/assets{?name,label}",
-  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.4.0",
-  "id": 426236451,
+  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/427345606",
+  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/427345606/assets",
+  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/427345606/assets{?name,label}",
+  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.5.0",
+  "id": 427345606,
   "author": {
     "login": "thedotmack",
     "id": 683968,
@@ -25,20 +25,20 @@
     "user_view_type": "public",
     "site_admin": false
   },
-  "node_id": "RE_kwDOPng1J84ZZ9oj",
-  "tag_name": "v15.4.0",
+  "node_id": "RE_kwDOPng1J84ZeMbG",
+  "tag_name": "v15.5.0",
   "target_commitish": "main",
-  "name": "v15.4.0",
+  "name": "v15.5.0",
   "draft": false,
   "immutable": false,
   "prerelease": false,
-  "created_at": "2026-10-28T03:35:29Z",
-  "updated_at": "2026-10-28T03:38:07Z",
-  "published_at": "2026-10-28T03:38:07Z",
+  "created_at": "2026-10-29T00:48:10Z",
+  "updated_at": "2026-10-29T00:48:22Z",
+  "published_at": "2026-10-29T00:48:22Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.4.0",
-  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.4.0",
-  "body": "## My Work: focus areas, and requests that file themselves\n\n### Focus areas are the top level of My Work (#5131)\n- **MY FOCUS rail.** Your focus areas are listed in priority order, with a needs-you count on each. Every request sits in exactly one area, or in **Other**. On phones the areas appear as a chip row.\n- **Area header.** Each area page shows its goal sentence, combined progress, your own quotes, the asks you haven't started yet, and a link to Past focus. The My Goals page is retired; its content now lives here.\n- **Suggested.** New areas appear here by themselves. You can Keep, Rename, Merge or Dismiss each one, with Undo. Your decisions sync across computers and a refresh never overrides them.\n- **Owner-goals sorts what it mines.** It applies three tests in order, so each statement becomes exactly one focus area, ask or rule. Priorities and open asks no longer duplicate each other.\n- **The Focus step replaces Align in the automatic refresh.** It places every request, and it proposes new areas from Other or from a request that holds several separate asks.\n- **Request cards.** Every card shows its area, and request detail has **Move to…**. \"What came out of it\" is now called **Deliverables**.\n\n### The judge files new conversations under their request (#5110)\n- **Before any grouping agent runs,** each new conversation is filed: a code link (the same work-state list or `request_id`) joins at once. On CMEM Pro, or with your own OpenRouter key, Jev also checks whether the conversation continues one of your open requests. At a check score of 0.8 or more it joins. Between 0.5 and 0.8 you get a **Join / Not this** suggestion on the card. Otherwise it starts its own request.\n- **Focus areas too.** On the same installs, Jev suggests a focus area for each request before the Focus step runs. The pick is only a hint to the Focus agent for now: automatic placement waits until enough of your own moves exist to calibrate a cutoff.\n- **Without Jev,** everything works as before.\n\n### A request keeps its conversations across project roots (#5106)\n- A request whose decision names its project root keeps conversations from other roots, and later refreshes can still add to it.\n\n### Fixes\n- The sync-api query-plan test applies its own schema, so it no longer fails depending on test order.\n\n**CMEM Pro:** the Jev decisions gateway (`/api/inference/v1/decisions`) is live for Pro subscribers.\n"
+  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.5.0",
+  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.5.0",
+  "body": "## Features\n\n- **My Work / My Focus:** Aceternity components across My Work and My Focus (#5136)\n- **Observer:** opt-in OpenAI-compatible batching (#5117)\n- **Work view:** summary provider selection is now explicit (#5104)\n- **Telemetry:** count My Work viewer opens and page switches in PostHog (#5107)\n\n## Fixes\n\n### Work view / My Work\n- Keep the build story under its cap with part budgets (#5128)\n- Stop failing refreshes from flooding agents and retrying forever (#5108)\n- Preserve rejected answers in refresh corrections (#5113)\n- Render recorded group titles and review summaries (#5114)\n\n### Redaction\n- Redact values under bare `token`, `secret` and `api_key` keys (#5130)\n- Redact the bearer token of an Authorization header object (#5129)\n- Pair `MYSQL_PWD` and `dbPassword` keys in structured payloads (#5111)\n- Redact Slack app-level (`xapp-`) and refresh (`xoxe-`) tokens (#5119)\n\n### Antigravity / MCP\n- Record agy MCP calls under their real tool name and a stable id (#5170)\n- Resolve Antigravity project context (#5105)\n- Use `%I`, not `%~I`, in the Windows 8.3 short-path lookup (#5099)\n\n### Worker, install and agents\n- Guard `POST /api/logs/clear` against foreign localhost origins (#5123)\n- Port reclaim reads the port owner, command line and name from `/proc` on Linux (#5101)\n- Clear `last-install-error.json` when an install or repair finishes (#5102)\n- `backup-setup` stops when the installed claude-mem has no backups (#5103)\n- Launch Codex through its resolved executable (#5112)\n- Pi: give the session-start context request the hooks' API budget (#5118)\n\n### Tests\n- Syntax-check the committed plugin bundles, not the built ones (#5137)\n\n**Full changelog:** https://github.com/thedotmack/claude-mem/compare/v15.4.0...v15.5.0\n"
 }
