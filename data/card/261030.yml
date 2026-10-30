@@ -1,0 +1,181 @@
+about:
+  description: "Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More"
+  license: Apache-2.0
+  homepage: https://claude-mem.ai
+  head: 325afb6
+  archived: false
+  latestVersion: "v15.6.0"
+  latestRelease: "v15.6.0"
+  latestPrerelease: "v13.10.3-community-edge.0"
+  collectedAt: 2026-10-30T06:44:21Z
+timeline:
+  created: 2025-08-31
+  lastCommit: 2026-10-29
+  lastVersion: 2026-10-29
+  lastRelease: 2026-10-29
+  lastPrerelease: 2026-07-09
+popularity:
+  star: 105057
+  watcher: 320
+  fork: 9260
+  release: 380
+  contributor: 307
+  pullRequest: 2594
+  issue: 2320
+language:
+  TypeScript: 18067490
+  JavaScript: 9334760
+  Python: 2058007
+  HTML: 238702
+  Shell: 144247
+  CSS: 51138
+  Dockerfile: 5506
+totalBytes: 29899850
+recent:
+  last30d:
+    since: 2026-09-30
+    release: 30
+    mergedPR: 638
+    openPR: 37
+    closedIssue: 140
+    openIssue: 32
+    commit: 769
+  last60d:
+    since: 2026-08-31
+    release: 67
+    mergedPR: 879
+    openPR: 45
+    closedIssue: 275
+    openIssue: 39
+    commit: 1200
+  last90d:
+    since: 2026-08-01
+    release: 78
+    mergedPR: 965
+    openPR: 57
+    closedIssue: 414
+    openIssue: 51
+    commit: 1323
+  last180d:
+    since: 2026-05-03
+    release: 100
+    mergedPR: 1211
+    openPR: 65
+    closedIssue: 1024
+    openIssue: 53
+    commit: 1755
+  last360d:
+    since: 2025-11-04
+    release: 100
+    mergedPR: 1534
+    openPR: 65
+    closedIssue: 2241
+    openIssue: 53
+    commit: 3173
+  last720d:
+    since: 2024-11-09
+    release: 100
+    mergedPR: 1546
+    openPR: 65
+    closedIssue: 2267
+    openIssue: 53
+    commit: 3767
+total:
+  release: 380
+  mergedPR: 1546
+  openPR: 65
+  closedIssue: 2267
+  openIssue: 53
+  commit: 3767
+---
+path: /home/runner/.x-repo/github.com/thedotmack/claude-mem
+collectedAt: 2026-10-30T06:45:13Z
+loc:
+  TypeScript:
+    code: 322497
+    comments: 48690
+    blanks: 39184
+    files: 1844
+  Json:
+    code: 56011
+    comments: 0
+    blanks: 141
+    files: 132
+  JavaScript:
+    code: 33767
+    comments: 2725
+    blanks: 1381
+    files: 105
+  Python:
+    code: 27108
+    comments: 700
+    blanks: 4662
+    files: 202
+  Tsx:
+    code: 14130
+    comments: 480
+    blanks: 1140
+    files: 107
+  Sh:
+    code: 3694
+    comments: 106
+    blanks: 686
+    files: 15
+  Css:
+    code: 731
+    comments: 45
+    blanks: 32
+    files: 4
+  Html:
+    code: 391
+    comments: 0
+    blanks: 18
+    files: 7
+  Yaml:
+    code: 240
+    comments: 91
+    blanks: 6
+    files: 10
+  Svg:
+    code: 237
+    comments: 8
+    blanks: 0
+    files: 20
+  Bash:
+    code: 154
+    comments: 19
+    blanks: 8
+    files: 1
+  Dockerfile:
+    code: 92
+    comments: 28
+    blanks: 31
+    files: 4
+  Xml:
+    code: 39
+    comments: 0
+    blanks: 0
+    files: 1
+  Toml:
+    code: 29
+    comments: 9
+    blanks: 6
+    files: 2
+  Markdown:
+    code: 0
+    comments: 33639
+    blanks: 13083
+    files: 232
+  Text:
+    code: 0
+    comments: 531
+    blanks: 92
+    files: 11
+total:
+  code: 468096
+  comments: 87710
+  blanks: 61632
+  files: 2697
+---
+
+---

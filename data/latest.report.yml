@@ -2,12 +2,12 @@ about:
   description: "Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More"
   license: Apache-2.0
   homepage: https://claude-mem.ai
-  head: d7c2da3
+  head: 325afb6
   archived: false
-  latestVersion: "v15.5.0"
-  latestRelease: "v15.5.0"
+  latestVersion: "v15.6.0"
+  latestRelease: "v15.6.0"
   latestPrerelease: "v13.10.3-community-edge.0"
-  collectedAt: 2026-10-29T06:44:22Z
+  collectedAt: 2026-10-30T06:44:21Z
 timeline:
   created: 2025-08-31
   lastCommit: 2026-10-29
@@ -15,107 +15,107 @@ timeline:
   lastRelease: 2026-10-29
   lastPrerelease: 2026-07-09
 popularity:
-  star: 104109
+  star: 105057
   watcher: 320
-  fork: 9186
-  release: 379
-  contributor: 301
-  pullRequest: 2579
-  issue: 2315
+  fork: 9260
+  release: 380
+  contributor: 307
+  pullRequest: 2594
+  issue: 2320
 language:
-  TypeScript: 17307039
-  JavaScript: 9267224
-  Python: 2055478
-  HTML: 232973
+  TypeScript: 18067490
+  JavaScript: 9334760
+  Python: 2058007
+  HTML: 238702
   Shell: 144247
   CSS: 51138
   Dockerfile: 5506
-totalBytes: 29063605
+totalBytes: 29899850
 recent:
   last30d:
-    since: 2026-09-29
-    release: 29
-    mergedPR: 621
-    openPR: 55
-    closedIssue: 132
-    openIssue: 37
-    commit: 737
+    since: 2026-09-30
+    release: 30
+    mergedPR: 638
+    openPR: 37
+    closedIssue: 140
+    openIssue: 32
+    commit: 769
   last60d:
-    since: 2026-08-30
-    release: 66
-    mergedPR: 861
-    openPR: 62
-    closedIssue: 268
-    openIssue: 44
-    commit: 1168
+    since: 2026-08-31
+    release: 67
+    mergedPR: 879
+    openPR: 45
+    closedIssue: 275
+    openIssue: 39
+    commit: 1200
   last90d:
-    since: 2026-07-31
-    release: 77
-    mergedPR: 944
-    openPR: 73
-    closedIssue: 405
-    openIssue: 56
-    commit: 1291
+    since: 2026-08-01
+    release: 78
+    mergedPR: 965
+    openPR: 57
+    closedIssue: 414
+    openIssue: 51
+    commit: 1323
   last180d:
-    since: 2026-05-02
+    since: 2026-05-03
     release: 100
-    mergedPR: 1185
-    openPR: 81
-    closedIssue: 1034
-    openIssue: 58
-    commit: 1723
+    mergedPR: 1211
+    openPR: 65
+    closedIssue: 1024
+    openIssue: 53
+    commit: 1755
   last360d:
-    since: 2025-11-03
+    since: 2025-11-04
     release: 100
-    mergedPR: 1507
-    openPR: 81
-    closedIssue: 2236
-    openIssue: 58
-    commit: 3141
+    mergedPR: 1534
+    openPR: 65
+    closedIssue: 2241
+    openIssue: 53
+    commit: 3173
   last720d:
-    since: 2024-11-08
+    since: 2024-11-09
     release: 100
-    mergedPR: 1517
-    openPR: 81
-    closedIssue: 2257
-    openIssue: 58
-    commit: 3735
+    mergedPR: 1546
+    openPR: 65
+    closedIssue: 2267
+    openIssue: 53
+    commit: 3767
 total:
-  release: 379
-  mergedPR: 1517
-  openPR: 81
-  closedIssue: 2257
-  openIssue: 58
-  commit: 3735
+  release: 380
+  mergedPR: 1546
+  openPR: 65
+  closedIssue: 2267
+  openIssue: 53
+  commit: 3767
 ---
 path: /home/runner/.x-repo/github.com/thedotmack/claude-mem
-collectedAt: 2026-10-29T06:45:07Z
+collectedAt: 2026-10-30T06:45:13Z
 loc:
   TypeScript:
-    code: 310869
-    comments: 47306
-    blanks: 38047
-    files: 1777
+    code: 322497
+    comments: 48690
+    blanks: 39184
+    files: 1844
   Json:
-    code: 54286
+    code: 56011
     comments: 0
     blanks: 141
-    files: 125
+    files: 132
   JavaScript:
-    code: 32945
-    comments: 2557
-    blanks: 1271
-    files: 103
+    code: 33767
+    comments: 2725
+    blanks: 1381
+    files: 105
   Python:
-    code: 27083
-    comments: 690
-    blanks: 4660
+    code: 27108
+    comments: 700
+    blanks: 4662
     files: 202
   Tsx:
-    code: 13713
-    comments: 470
-    blanks: 1113
-    files: 105
+    code: 14130
+    comments: 480
+    blanks: 1140
+    files: 107
   Sh:
     code: 3694
     comments: 106
@@ -151,6 +151,11 @@ loc:
     comments: 28
     blanks: 31
     files: 4
+  Xml:
+    code: 39
+    comments: 0
+    blanks: 0
+    files: 1
   Toml:
     code: 29
     comments: 9
@@ -158,20 +163,20 @@ loc:
     files: 2
   Markdown:
     code: 0
-    comments: 33191
-    blanks: 13008
-    files: 230
+    comments: 33639
+    blanks: 13083
+    files: 232
   Text:
     code: 0
     comments: 531
     blanks: 92
     files: 11
 total:
-  code: 453210
-  comments: 85689
-  blanks: 60248
-  files: 2616
+  code: 468096
+  comments: 87710
+  blanks: 61632
+  files: 2697
 ---
 
 ---
-{"id":427345606,"author":{"login":"thedotmack","id":683968,"node_id":"MDQ6VXNlcjY4Mzk2OA==","gravatar_id":"","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOPng1J84ZeMbG","tag_name":"v15.5.0","target_commitish":"main","name":"v15.5.0","draft":false,"immutable":false,"prerelease":false,"created_at":"2026-10-29T00:48:10Z","updated_at":"2026-10-29T00:48:22Z","published_at":"2026-10-29T00:48:22Z","assets":[],"body":"## Features\n\n- **My Work / My Focus:** Aceternity components across My Work and My Focus (#5136)\n- **Observer:** opt-in OpenAI-compatible batching (#5117)\n- **Work view:** summary provider selection is now explicit (#5104)\n- **Telemetry:** count My Work viewer opens and page switches in PostHog (#5107)\n\n## Fixes\n\n### Work view / My Work\n- Keep the build story under its cap with part budgets (#5128)\n- Stop failing refreshes from flooding agents and retrying forever (#5108)\n- Preserve rejected answers in refresh corrections (#5113)\n- Render recorded group titles and review summaries (#5114)\n\n### Redaction\n- Redact values under bare `token`, `secret` and `api_key` keys (#5130)\n- Redact the bearer token of an Authorization header object (#5129)\n- Pair `MYSQL_PWD` and `dbPassword` keys in structured payloads (#5111)\n- Redact Slack app-level (`xapp-`) and refresh (`xoxe-`) tokens (#5119)\n\n### Antigravity / MCP\n- Record agy MCP calls under their real tool name and a stable id (#5170)\n- Resolve Antigravity project context (#5105)\n- Use `%I`, not `%~I`, in the Windows 8.3 short-path lookup (#5099)\n\n### Worker, install and agents\n- Guard `POST /api/logs/clear` against foreign localhost origins (#5123)\n- Port reclaim reads the port owner, command line and name from `/proc` on Linux (#5101)\n- Clear `last-install-error.json` when an install or repair finishes (#5102)\n- `backup-setup` stops when the installed claude-mem has no backups (#5103)\n- Launch Codex through its resolved executable (#5112)\n- Pi: give the session-start context request the hooks' API budget (#5118)\n\n### Tests\n- Syntax-check the committed plugin bundles, not the built ones (#5137)\n\n**Full changelog:** https://github.com/thedotmack/claude-mem/compare/v15.4.0...v15.5.0\n"}
+{"id":428155569,"author":{"login":"thedotmack","id":683968,"node_id":"MDQ6VXNlcjY4Mzk2OA==","gravatar_id":"","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOPng1J84ZhSKx","tag_name":"v15.6.0","target_commitish":"main","name":"v15.6.0","draft":false,"immutable":false,"prerelease":false,"created_at":"2026-10-29T17:01:10Z","updated_at":"2026-10-29T17:01:29Z","published_at":"2026-10-29T17:01:29Z","assets":[],"body":"## My Work: one store for the viewer's state (#5187)\n\nMy Work used to keep its state in three places: a hand-rolled module store, component state in `App`, and React contexts. It now runs on one Zustand store split into four slices: work, view, rules and focus.\n\n**What you'll notice**\n- **Reload and Back/Forward work.** The page, focus area and open request drawer are in the URL (`?view=`, `?focus=`, `?request=`).\n- **Your list view, filter and sort are remembered** between visits. The theme still follows your system or `?theme=`. If browser storage is blocked, preferences last for the current visit only.\n- **Live updates are steadier.** A stopped source can't publish. An older read never overwrites a newer live model. When a live update overtakes a save, you see the current model and your save is kept. Heartbeats re-render only the status indicators.\n- **The drawer follows its request** by id and closes when the request leaves the feed. If the first read fails, you get a Retry button. A selected Closed filter stays visible even when nothing matches.\n- **My Rules:** one save at a time, with controls disabled while a save runs. Each Approve/Reject receipt is tied to the version the worker saved, and Undo is refused once the rule has changed since.\n- **My Focus:** all screens share one save history.\n\n**Worker**\n- Rule saves return `savedRuleId`.\n- \"Load in Claude Code\" publishes the change to other open tabs.\n- The feed signature includes `rulesFile`.\n\n**Full changelog:** https://github.com/thedotmack/claude-mem/compare/v15.5.0...v15.6.0\n"}
