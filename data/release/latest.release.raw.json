@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/437118090",
-  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/437118090/assets",
-  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/437118090/assets{?name,label}",
-  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.11.0",
-  "id": 437118090,
+  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/437804030",
+  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/437804030/assets",
+  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/437804030/assets{?name,label}",
+  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.12.0",
+  "id": 437804030,
   "author": {
     "login": "thedotmack",
     "id": 683968,
@@ -25,20 +25,21 @@
     "user_view_type": "public",
     "site_admin": false
   },
-  "node_id": "RE_kwDOPng1J84aDeSK",
-  "tag_name": "v15.11.0",
+  "node_id": "RE_kwDOPng1J84aGFv-",
+  "tag_name": "v15.12.0",
   "target_commitish": "main",
-  "name": "v15.11.0",
+  "name": "v15.12.0",
   "draft": false,
   "immutable": false,
   "prerelease": false,
-  "created_at": "2026-11-06T22:17:40Z",
-  "updated_at": "2026-11-06T22:17:48Z",
-  "published_at": "2026-11-06T22:17:48Z",
+  "created_at": "2026-11-07T19:51:21Z",
+  "updated_at": "2026-11-07T19:51:33Z",
+  "published_at": "2026-11-07T19:51:33Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.11.0",
-  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.11.0",
-  "body": "# Installer screen telemetry and runtime fixes\n\nClaude-Mem now records progress through the local setup screens, so the admin can show where setup continues, goes back, encounters a known error, or has no recorded next step.\n\n- Track the nine actual setup screens: Scan, Reveal, Choose memory, Review savings, Checkout, Finish setup, Import history, Launch, and Workspace.\n- Count each rendered screen visit separately. Returning to a screen creates a new visit; failed hand-offs do not become successful forward transitions.\n- Preserve the real setup branches. At Home and existing Pro configurations skip checkout, history import returns to Finish setup, and reduced-motion setup skips the launch animation.\n- Record local setup completion only after the worker accepts the successful setup state write.\n- Preserve pending screen events when setup finishes and retry temporary local-worker connection failures, so a fast completion or a slow telemetry request does not lose the visit history.\n- Pass a fresh setup-attempt ID through the existing installer pairing when telemetry is enabled, allowing the matching admin report to connect setup progress to the authorized account flow.\n\nThe events follow the existing analytics settings, including `DO_NOT_TRACK`. Their schema accepts only known screen IDs, actions, error codes, timestamps, and random attempt/visit IDs. Prompts, filenames, URLs, credentials, and free-form error text are excluded. Sample previews do not emit setup events. The worker's long-lived anonymous identity is not aliased to an account.\n\nPer-screen history starts with this release. Older installers did not record these screens, so their missing events are not treated as zero conversions or abandonment.\n\n## Runtime fixes included since v15.10.1\n\n- Stop replaying stale local observer work after quota or authentication recovery. Live capture uses a bounded handoff; pending inputs expire after five minutes and are discarded on quota/authentication failure. Saved memories and original transcripts remain intact. Capture skipped during an outage is not automatically backfilled.\n- Restore the server viewer's read endpoints using the server's Postgres data and existing team/project authorization. Shared server log files remain unavailable to tenant keys.\n- Stop advertising `dumb_search` on the server runtime, where only the local worker can execute it.\n- Derive the default worker port per installation to avoid local port collisions while preserving the legacy Windows server port.\n- Show files outside a project under the home directory as `~/…` in generated context, rather than long chains of parent-directory segments.\n- Prefer the configured provider's agent for My Work refreshes.\n\nFull comparison: https://github.com/thedotmack/claude-mem/compare/v15.10.1...v15.11.0\n"
+  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.12.0",
+  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.12.0",
+  "body": "## Images are kept by default and show in My Work\n\n- **Kept by default:** screenshots and images your agent reads or makes are now kept and linked to the observations from that turn, without sending them to an AI model. Image inference stays off (#5426).\n- **\"Keep images\" switch:** the memory viewer's Settings has a new **Images** section. Turning **Keep images** off stops keeping new images; images already kept stay. A `\"false\"` you saved yourself is respected (#5426).\n- **Gallery in My Work:** request cards show an image count and the first four thumbnails; the request drawer shows every linked image; any thumbnail opens a full-size gallery with keyboard navigation (#5427).\n- **Fresh databases:** My Work lists observation activity again on a newly created database (#5427).\n- **Local conversion you can rely on:** captured screenshots now convert on your own computer instead of failing as busy or timing out. Conversions wait their turn and get 20 seconds each, and every stored copy is lossy WebP so it stays small (#5431).\n- **Cloud quota:** each owner can store up to 25 GiB of images on cmem.ai, the same limit Pro enforces (#5467).\n\n## Fixes\n\n- **Sessions:** after you delete a session in the viewer, new work in the same resumed conversation is captured again (#5463).\n- **Sessions:** committed transcript entries are no longer replayed after a worker restart (#5321, thanks @lamimiahmed45-droid).\n- **Hooks:** Grok Build's camelCase hook payload is accepted (#4282, thanks @nathan-v).\n- **Hooks:** PreToolUse memory lookups are scoped to the current platform, so one harness no longer gets another's observations (#5008, thanks @SuperMarioYL).\n- **My Work:** the scheduled refresh stays on the configured agent instead of falling back to another one (#5245, thanks @Dev-0710).\n- **Claude CLI:** the Claude CLI is found again when `CLAUDE_CODE_PATH` changes (#5460, thanks @WhitePepperLambSoup).\n- **Security:** `CLAUDE_MEM_DATA_DIR` and `CLAUDE_MEM_WORKER_HOST` can no longer be changed through `POST /api/settings`, and an OpenClaw reinstall keeps every existing setting (#5147, thanks @Wenjix).\n- **Settings:** the Grok Bot awareness pilot agent IDs are no longer shipped as defaults (#4970, thanks @zichen0116).\n- **Sync:** a backlogged sync drains instead of stalling, and `projection_busy` replies carry `Retry-After` (#3488).\n- **Sync hub:** fewer Durable Object row writes per request (#4424, thanks @necatisozer) and no re-serializing of a page per operation when counting its bytes (#4937, thanks @devkancheti4-design).\n\n## Also in this release\n\n- **My Work:** leads with what's moving, groups cards by state and animates live changes (#5365).\n- **My Work:** text is written in the owner's language, with an opt-in language setting (#5156, thanks @mehmetcelik7).\n- **Interface:** opt-in Simplified Chinese for the worker interfaces (#5325, thanks @h6rime).\n- **Observer health:** clearer SessionStart quota notices (#5134).\n- **Installer:** the optional email and \"how can we help\" question is back, asked once in an interactive terminal only; sign-in is only for CMEM Pro (#5218).\n- **Claude app plugin:** renamed to `cmem-pro`, carries the cmem.ai connector, and no longer captures memory lookups back into memory (#4570).\n- **Providers:** cheapaimodel (#5158, thanks @nicho810) and Obscurify.ai (#5165, thanks @tonydavis629) presets for the OpenAI-compatible provider.\n- **Smart read:** Delphi/Pascal support (#4953, thanks @nm3xyz).\n- **Skills:** new community-sweep skill (#4374); oh-my-issues starts its cluster pass blind and adds an open-PR pass (#3617); the version-bump skill refuses to run outside thedotmack/claude-mem (#4575, thanks @somil14).\n- **Docs:** the README says the observer trial goes through a payment-method checkout (#5087, thanks @Iyanuoluwa007).\n\n**Full changelog:** https://github.com/thedotmack/claude-mem/compare/v15.11.1...v15.12.0\n",
+  "mentions_count": 16
 }
