@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/437804030",
-  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/437804030/assets",
-  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/437804030/assets{?name,label}",
-  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.12.0",
-  "id": 437804030,
+  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/440041832",
+  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/440041832/assets",
+  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/440041832/assets{?name,label}",
+  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.15.1",
+  "id": 440041832,
   "author": {
     "login": "thedotmack",
     "id": 683968,
@@ -25,21 +25,21 @@
     "user_view_type": "public",
     "site_admin": false
   },
-  "node_id": "RE_kwDOPng1J84aGFv-",
-  "tag_name": "v15.12.0",
+  "node_id": "RE_kwDOPng1J84aOoFo",
+  "tag_name": "v15.15.1",
   "target_commitish": "main",
-  "name": "v15.12.0",
+  "name": "v15.15.1",
   "draft": false,
   "immutable": false,
   "prerelease": false,
-  "created_at": "2026-11-07T19:51:21Z",
-  "updated_at": "2026-11-07T19:51:33Z",
-  "published_at": "2026-11-07T19:51:33Z",
+  "created_at": "2026-11-10T07:06:10Z",
+  "updated_at": "2026-11-10T07:06:39Z",
+  "published_at": "2026-11-10T07:06:39Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.12.0",
-  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.12.0",
-  "body": "## Images are kept by default and show in My Work\n\n- **Kept by default:** screenshots and images your agent reads or makes are now kept and linked to the observations from that turn, without sending them to an AI model. Image inference stays off (#5426).\n- **\"Keep images\" switch:** the memory viewer's Settings has a new **Images** section. Turning **Keep images** off stops keeping new images; images already kept stay. A `\"false\"` you saved yourself is respected (#5426).\n- **Gallery in My Work:** request cards show an image count and the first four thumbnails; the request drawer shows every linked image; any thumbnail opens a full-size gallery with keyboard navigation (#5427).\n- **Fresh databases:** My Work lists observation activity again on a newly created database (#5427).\n- **Local conversion you can rely on:** captured screenshots now convert on your own computer instead of failing as busy or timing out. Conversions wait their turn and get 20 seconds each, and every stored copy is lossy WebP so it stays small (#5431).\n- **Cloud quota:** each owner can store up to 25 GiB of images on cmem.ai, the same limit Pro enforces (#5467).\n\n## Fixes\n\n- **Sessions:** after you delete a session in the viewer, new work in the same resumed conversation is captured again (#5463).\n- **Sessions:** committed transcript entries are no longer replayed after a worker restart (#5321, thanks @lamimiahmed45-droid).\n- **Hooks:** Grok Build's camelCase hook payload is accepted (#4282, thanks @nathan-v).\n- **Hooks:** PreToolUse memory lookups are scoped to the current platform, so one harness no longer gets another's observations (#5008, thanks @SuperMarioYL).\n- **My Work:** the scheduled refresh stays on the configured agent instead of falling back to another one (#5245, thanks @Dev-0710).\n- **Claude CLI:** the Claude CLI is found again when `CLAUDE_CODE_PATH` changes (#5460, thanks @WhitePepperLambSoup).\n- **Security:** `CLAUDE_MEM_DATA_DIR` and `CLAUDE_MEM_WORKER_HOST` can no longer be changed through `POST /api/settings`, and an OpenClaw reinstall keeps every existing setting (#5147, thanks @Wenjix).\n- **Settings:** the Grok Bot awareness pilot agent IDs are no longer shipped as defaults (#4970, thanks @zichen0116).\n- **Sync:** a backlogged sync drains instead of stalling, and `projection_busy` replies carry `Retry-After` (#3488).\n- **Sync hub:** fewer Durable Object row writes per request (#4424, thanks @necatisozer) and no re-serializing of a page per operation when counting its bytes (#4937, thanks @devkancheti4-design).\n\n## Also in this release\n\n- **My Work:** leads with what's moving, groups cards by state and animates live changes (#5365).\n- **My Work:** text is written in the owner's language, with an opt-in language setting (#5156, thanks @mehmetcelik7).\n- **Interface:** opt-in Simplified Chinese for the worker interfaces (#5325, thanks @h6rime).\n- **Observer health:** clearer SessionStart quota notices (#5134).\n- **Installer:** the optional email and \"how can we help\" question is back, asked once in an interactive terminal only; sign-in is only for CMEM Pro (#5218).\n- **Claude app plugin:** renamed to `cmem-pro`, carries the cmem.ai connector, and no longer captures memory lookups back into memory (#4570).\n- **Providers:** cheapaimodel (#5158, thanks @nicho810) and Obscurify.ai (#5165, thanks @tonydavis629) presets for the OpenAI-compatible provider.\n- **Smart read:** Delphi/Pascal support (#4953, thanks @nm3xyz).\n- **Skills:** new community-sweep skill (#4374); oh-my-issues starts its cluster pass blind and adds an open-PR pass (#3617); the version-bump skill refuses to run outside thedotmack/claude-mem (#4575, thanks @somil14).\n- **Docs:** the README says the observer trial goes through a payment-method checkout (#5087, thanks @Iyanuoluwa007).\n\n**Full changelog:** https://github.com/thedotmack/claude-mem/compare/v15.11.1...v15.12.0\n",
-  "mentions_count": 16
+  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.15.1",
+  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.15.1",
+  "body": "## No replay after an outage\n\nWhen the worker was down or refused a capture, some capture paths kept that work and sent it again later, which could start model calls nobody asked for. They now drop what the worker refused and carry on with new work (#5663):\n\n- **Transcript capture:** a transcript line the worker refuses or cannot take is skipped. Before, the watcher stopped at that line and, once the worker was back, sent it again with every line after it. A restart no longer resends lines from an outage either.\n- **Cowork:** a prompt, observation or summary that fails to send is dropped instead of being spooled and sent again by a later hook. Only session start, session end and subagent stop events are still spooled, and prompts, observations and summaries left in an older spool are removed on its next flush.\n- **OpenCode:** a session start the worker refused is sent once, like observations and summaries, instead of being retried in the background for about 10 seconds.\n\n## Fixes\n\n- **Redaction:** Grafana service account tokens (`glsa_`), Grafana Cloud tokens (`glc_`) and Postman API keys (`PMAK-`) are redacted, by the worker and by the Cowork shim. Turn either off by name with `CLAUDE_MEM_REDACT_DISABLED_BUILTINS` (`grafana_token`, `postman_key`) (#5662, thanks @kevin9327).\n- **OpenClaw:** `<private>` content is removed from tool output before the output is cut to 1,000 characters. Before, a cut inside a private block dropped its closing tag, so the private text was stored. Text after an unclosed `<private>` tag is now dropped too (#5663).\n- **Status and doctor:** `claude-mem status` names every dependency in words, such as \"Observer data directory setup required\" instead of `observer_dir: setup_required`, and its hint points to `claude-mem doctor` instead of a Settings screen that does not show these. `doctor` shows a status from a newer worker instead of dropping it (#5661).\n- **Work state:** `Done` and `Dropped` close an item in any letter case, everywhere. Before, saving an owner-goals item as `Done` was refused although every reader already treated it as closed (#5661).\n- **CCS Align:** a corrupt exclusion file is refused instead of being read as empty, so excluded observations stay excluded and the file is not overwritten (#5663).\n- **Viewer:** observations of type `sensitive` get their own \"Sensitive\" filter on the session page instead of being counted under \"Other\" (#5663).\n\n## Also in this release\n\n- **Setup and My Work:** each setup, billing, scan and refresh state is defined once and shared by the installer, the worker and the pages, so a new state fails the typecheck until every screen handles it (#5661).\n- **Tests:** about 60,000 lines of tests removed: tests that only checked their own fixtures, duplicate cases (folded into tables) and four duplicate copies of the agent-cost-report Python tests. Kept regression tests run production code (#5663).\n- **CI:** Bun is pinned to 1.4.4, ripgrep is installed, the Cowork runner and agent-cost-report Python tests run, and tool-heavy suites moved to the integration lane (#5663).\n\n**Full changelog:** https://github.com/thedotmack/claude-mem/compare/v15.15.0...v15.15.1\n",
+  "mentions_count": 1
 }
