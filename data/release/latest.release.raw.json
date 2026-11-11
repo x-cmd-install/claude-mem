@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/440041832",
-  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/440041832/assets",
-  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/440041832/assets{?name,label}",
-  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.15.1",
-  "id": 440041832,
+  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/441301379",
+  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/441301379/assets",
+  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/441301379/assets{?name,label}",
+  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.17.0",
+  "id": 441301379,
   "author": {
     "login": "thedotmack",
     "id": 683968,
@@ -25,21 +25,20 @@
     "user_view_type": "public",
     "site_admin": false
   },
-  "node_id": "RE_kwDOPng1J84aOoFo",
-  "tag_name": "v15.15.1",
+  "node_id": "RE_kwDOPng1J84aTbmD",
+  "tag_name": "v15.17.0",
   "target_commitish": "main",
-  "name": "v15.15.1",
+  "name": "v15.17.0",
   "draft": false,
   "immutable": false,
   "prerelease": false,
-  "created_at": "2026-11-10T07:06:10Z",
-  "updated_at": "2026-11-10T07:06:39Z",
-  "published_at": "2026-11-10T07:06:39Z",
+  "created_at": "2026-11-11T06:13:17Z",
+  "updated_at": "2026-11-11T06:13:38Z",
+  "published_at": "2026-11-11T06:13:38Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.15.1",
-  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.15.1",
-  "body": "## No replay after an outage\n\nWhen the worker was down or refused a capture, some capture paths kept that work and sent it again later, which could start model calls nobody asked for. They now drop what the worker refused and carry on with new work (#5663):\n\n- **Transcript capture:** a transcript line the worker refuses or cannot take is skipped. Before, the watcher stopped at that line and, once the worker was back, sent it again with every line after it. A restart no longer resends lines from an outage either.\n- **Cowork:** a prompt, observation or summary that fails to send is dropped instead of being spooled and sent again by a later hook. Only session start, session end and subagent stop events are still spooled, and prompts, observations and summaries left in an older spool are removed on its next flush.\n- **OpenCode:** a session start the worker refused is sent once, like observations and summaries, instead of being retried in the background for about 10 seconds.\n\n## Fixes\n\n- **Redaction:** Grafana service account tokens (`glsa_`), Grafana Cloud tokens (`glc_`) and Postman API keys (`PMAK-`) are redacted, by the worker and by the Cowork shim. Turn either off by name with `CLAUDE_MEM_REDACT_DISABLED_BUILTINS` (`grafana_token`, `postman_key`) (#5662, thanks @kevin9327).\n- **OpenClaw:** `<private>` content is removed from tool output before the output is cut to 1,000 characters. Before, a cut inside a private block dropped its closing tag, so the private text was stored. Text after an unclosed `<private>` tag is now dropped too (#5663).\n- **Status and doctor:** `claude-mem status` names every dependency in words, such as \"Observer data directory setup required\" instead of `observer_dir: setup_required`, and its hint points to `claude-mem doctor` instead of a Settings screen that does not show these. `doctor` shows a status from a newer worker instead of dropping it (#5661).\n- **Work state:** `Done` and `Dropped` close an item in any letter case, everywhere. Before, saving an owner-goals item as `Done` was refused although every reader already treated it as closed (#5661).\n- **CCS Align:** a corrupt exclusion file is refused instead of being read as empty, so excluded observations stay excluded and the file is not overwritten (#5663).\n- **Viewer:** observations of type `sensitive` get their own \"Sensitive\" filter on the session page instead of being counted under \"Other\" (#5663).\n\n## Also in this release\n\n- **Setup and My Work:** each setup, billing, scan and refresh state is defined once and shared by the installer, the worker and the pages, so a new state fails the typecheck until every screen handles it (#5661).\n- **Tests:** about 60,000 lines of tests removed: tests that only checked their own fixtures, duplicate cases (folded into tables) and four duplicate copies of the agent-cost-report Python tests. Kept regression tests run production code (#5663).\n- **CI:** Bun is pinned to 1.4.4, ripgrep is installed, the Cowork runner and agent-cost-report Python tests run, and tool-heavy suites moved to the integration lane (#5663).\n\n**Full changelog:** https://github.com/thedotmack/claude-mem/compare/v15.15.0...v15.15.1\n",
-  "mentions_count": 1
+  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.17.0",
+  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.17.0",
+  "body": "## New: claude-mem memory for eve agents\n\n- **`claude-mem/eve`** is a new export of the `claude-mem` npm package. It is a memory provider for [eve](https://eve.dev), Vercel's framework for durable backend agents. An eve agent can now recall what you did in Claude Code, Codex and your other claude-mem clients, using your [cmem.ai](https://cmem.ai) memory (key from cmem.ai/pro/key) (#5863).\n  - **Recall:** one search before every turn. No inference spend. Matches reach the model as escaped data, never as instructions.\n  - **Tools:** `<slot>__search` to look further back and `<slot>__remember` to save a note. Both are bound to the slot's scope.\n  - **Separate memory per caller:** each eve scope gets its own claude-mem project by default. `searchAllProjects` reads the whole account and is for single-owner agents only.\n  - **No automatic capture:** eve can replay a capture step, and that would save the same turn twice, so saves only happen when the model calls `remember`.\n  - **Failures stay visible:** if cmem.ai can't be reached, the turn still runs, the failure is logged, and the model is told memory is unavailable.\n  - Requires eve 0.84.0 or later and Node.js 24 or later. `eve` and `zod` are optional peer dependencies, so nothing changes for existing installs.\n- **One-click eve personal agent template** at [`integrations/eve/template`](https://github.com/thedotmack/claude-mem/tree/main/integrations/eve/template): password-protected web chat with your claude-mem memory. Deploy with Vercel and enter two values, `EVE_CHAT_PASSWORD` and `CLAUDE_MEM_API_KEY`. iMessage is an eve add-on (`npx eve add channel/linq` or `channel/photon`); only texts from `CLAUDE_MEM_OWNER_PHONE` get your memory.\n\nQuick start for an existing eve agent:\n\n```bash\nnpm install claude-mem\n```\n\n```ts\n// agent/memory/claude-mem.ts\nimport { claudeMem } from \"claude-mem/eve\";\nimport { defineMemory } from \"eve/memory\";\nimport { byPrincipal } from \"eve/memory/scope\";\n\nexport default defineMemory({\n  description: \"Recall and save durable context for the current user.\",\n  provider: claudeMem({ apiKey: process.env.CLAUDE_MEM_API_KEY }),\n  scope: byPrincipal,\n});\n```\n\nDocs: https://docs.claude-mem.ai/eve-integration\n\nNo changes to the Claude Code plugin's capture, worker or hooks in this release.\n\n**Full changelog:** https://github.com/thedotmack/claude-mem/compare/v15.16.1...v15.17.0\n"
 }
