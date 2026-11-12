@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/441301379",
-  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/441301379/assets",
-  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/441301379/assets{?name,label}",
-  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.17.0",
-  "id": 441301379,
+  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/442635539",
+  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/442635539/assets",
+  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/442635539/assets{?name,label}",
+  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.18.1",
+  "id": 442635539,
   "author": {
     "login": "thedotmack",
     "id": 683968,
@@ -25,20 +25,21 @@
     "user_view_type": "public",
     "site_admin": false
   },
-  "node_id": "RE_kwDOPng1J84aTbmD",
-  "tag_name": "v15.17.0",
+  "node_id": "RE_kwDOPng1J84aYhUT",
+  "tag_name": "v15.18.1",
   "target_commitish": "main",
-  "name": "v15.17.0",
+  "name": "v15.18.1",
   "draft": false,
   "immutable": false,
   "prerelease": false,
-  "created_at": "2026-11-11T06:13:17Z",
-  "updated_at": "2026-11-11T06:13:38Z",
-  "published_at": "2026-11-11T06:13:38Z",
+  "created_at": "2026-11-12T07:42:11Z",
+  "updated_at": "2026-11-12T07:52:21Z",
+  "published_at": "2026-11-12T07:52:21Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.17.0",
-  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.17.0",
-  "body": "## New: claude-mem memory for eve agents\n\n- **`claude-mem/eve`** is a new export of the `claude-mem` npm package. It is a memory provider for [eve](https://eve.dev), Vercel's framework for durable backend agents. An eve agent can now recall what you did in Claude Code, Codex and your other claude-mem clients, using your [cmem.ai](https://cmem.ai) memory (key from cmem.ai/pro/key) (#5863).\n  - **Recall:** one search before every turn. No inference spend. Matches reach the model as escaped data, never as instructions.\n  - **Tools:** `<slot>__search` to look further back and `<slot>__remember` to save a note. Both are bound to the slot's scope.\n  - **Separate memory per caller:** each eve scope gets its own claude-mem project by default. `searchAllProjects` reads the whole account and is for single-owner agents only.\n  - **No automatic capture:** eve can replay a capture step, and that would save the same turn twice, so saves only happen when the model calls `remember`.\n  - **Failures stay visible:** if cmem.ai can't be reached, the turn still runs, the failure is logged, and the model is told memory is unavailable.\n  - Requires eve 0.84.0 or later and Node.js 24 or later. `eve` and `zod` are optional peer dependencies, so nothing changes for existing installs.\n- **One-click eve personal agent template** at [`integrations/eve/template`](https://github.com/thedotmack/claude-mem/tree/main/integrations/eve/template): password-protected web chat with your claude-mem memory. Deploy with Vercel and enter two values, `EVE_CHAT_PASSWORD` and `CLAUDE_MEM_API_KEY`. iMessage is an eve add-on (`npx eve add channel/linq` or `channel/photon`); only texts from `CLAUDE_MEM_OWNER_PHONE` get your memory.\n\nQuick start for an existing eve agent:\n\n```bash\nnpm install claude-mem\n```\n\n```ts\n// agent/memory/claude-mem.ts\nimport { claudeMem } from \"claude-mem/eve\";\nimport { defineMemory } from \"eve/memory\";\nimport { byPrincipal } from \"eve/memory/scope\";\n\nexport default defineMemory({\n  description: \"Recall and save durable context for the current user.\",\n  provider: claudeMem({ apiKey: process.env.CLAUDE_MEM_API_KEY }),\n  scope: byPrincipal,\n});\n```\n\nDocs: https://docs.claude-mem.ai/eve-integration\n\nNo changes to the Claude Code plugin's capture, worker or hooks in this release.\n\n**Full changelog:** https://github.com/thedotmack/claude-mem/compare/v15.16.1...v15.17.0\n"
+  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.18.1",
+  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.18.1",
+  "body": "## Critical fixes\n\n- **The worker no longer fails to start when the database is busy at startup** (#6041). If the My Work refresh record was left as \"running\" by a restart and the database was locked at that moment, the repair write threw and took down the worker's whole startup, so memory stayed off until the next restart. The repair failure is now logged, and the next scheduled check tries again (whether or not scheduled refresh is on).\n- **`npx claude-mem update` and the daily auto-update keep your setup** (#6045). Before this, an unattended update reset a server or server-beta runtime back to the local worker, so capture moved off your server. A legacy install with no saved provider could also have its cloud sync turned off and its Anthropic env keys cleared. Updates now reuse your saved runtime, provider, model and agents. They don't reopen the browser setup or ask the setup questions again, and only ask for a Gemini or OpenRouter key if one is missing. `npx claude-mem install` is unchanged.\n- **My Work summaries stop retrying unusable model answers forever** (#6039, thanks @mohitdixit02, reported by @adminwat in #6037). When the model's answer failed validation, wasn't JSON or came back empty, the same unchanged request was resent every minute with no end. One report measured 104,869 calls, and the constant load starved a local Ollama runner. Each request version now gets at most 3 tries with a growing wait, then waits until its input or settings change. The card shows the actual reason. Thanks @balabommablock-cpu for testing and finding the empty-answer case.\n\n## Fixes\n\n- **Lower observer cost by default** (#6031, thanks @kartik70, closes #5023). The observer's conversation budget drops from 400,000 to 100,000 characters (about 100K to about 26K tokens per turn in the issue's measurement). Installs that still hold the old shipped default move once; a value you set yourself is kept.\n- **Redaction:** Heroku API keys and Atlassian API tokens are now removed before storage (#6046, thanks @kevin9327).\n- **TeamBrain:** relayed text can no longer pass as claude-mem's own headings, fences or rules (`~~~`, `***`, `___`, setext `===`) (#6048, thanks @kevin9327).\n- **Work state:** `GET /api/work-state/export` returns the complete history of a list when it is too long for an MCP reply, and shortened MCP reads now say so and point to it (#6049, thanks @Jeremy891102, closes #6043).\n- **My Work** (thanks @Afloat16):\n  - A checked request is unchecked again when a new deliverable revision or published PR changes its result (#5891).\n  - The first goals map of a long prompt history runs in checkpointed batches instead of one oversized question that fails and repeats (#6001).\n  - Resolving original requests no longer rescans the whole prompt window per conversation (#6022).\n- **Smart file read:** function signatures end at the real body boundary in every supported language, so destructured parameters and default objects stay in the outline and are searchable (#6029, thanks @Afloat16).\n- **Gemini CLI:** `npx claude-mem gemini install` finds a worker installed only in the plugin cache instead of reporting it missing (#6032, thanks @Kirat0201).\n- **Memory:** replaying an older native memory note uses an index instead of scanning project history inside the write transaction (#6016, thanks @Afloat16).\n\n## New examples and docs\n\n- Obsidian: an opt-in, one-way export of selected memories into an existing vault, never overwriting your notes (#6051, thanks @Jeremy891102, closes #5943).\n- Pipecat: an explicit project-memory pipeline example (#6050, thanks @Jeremy891102, closes #5946).\n- elizaOS: a verified explicit-memory example (#6035, thanks @Kirat0201, closes #5914).\n- ContextForge: a private recall workflow (#6033, thanks @Kirat0201, closes #5935).\n",
+  "mentions_count": 8
 }
