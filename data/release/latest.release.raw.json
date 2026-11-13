@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/442635539",
-  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/442635539/assets",
-  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/442635539/assets{?name,label}",
-  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.18.1",
-  "id": 442635539,
+  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/443377304",
+  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/443377304/assets",
+  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/443377304/assets{?name,label}",
+  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.18.3",
+  "id": 443377304,
   "author": {
     "login": "thedotmack",
     "id": 683968,
@@ -25,21 +25,33 @@
     "user_view_type": "public",
     "site_admin": false
   },
-  "node_id": "RE_kwDOPng1J84aYhUT",
-  "tag_name": "v15.18.1",
+  "node_id": "RE_kwDOPng1J84abWaY",
+  "tag_name": "v15.18.3",
   "target_commitish": "main",
-  "name": "v15.18.1",
+  "name": "v15.18.3",
   "draft": false,
   "immutable": false,
   "prerelease": false,
-  "created_at": "2026-11-12T07:42:11Z",
-  "updated_at": "2026-11-12T07:52:21Z",
-  "published_at": "2026-11-12T07:52:21Z",
+  "created_at": "2026-11-12T18:52:53Z",
+  "updated_at": "2026-11-12T18:53:05Z",
+  "published_at": "2026-11-12T18:53:05Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.18.1",
-  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.18.1",
-  "body": "## Critical fixes\n\n- **The worker no longer fails to start when the database is busy at startup** (#6041). If the My Work refresh record was left as \"running\" by a restart and the database was locked at that moment, the repair write threw and took down the worker's whole startup, so memory stayed off until the next restart. The repair failure is now logged, and the next scheduled check tries again (whether or not scheduled refresh is on).\n- **`npx claude-mem update` and the daily auto-update keep your setup** (#6045). Before this, an unattended update reset a server or server-beta runtime back to the local worker, so capture moved off your server. A legacy install with no saved provider could also have its cloud sync turned off and its Anthropic env keys cleared. Updates now reuse your saved runtime, provider, model and agents. They don't reopen the browser setup or ask the setup questions again, and only ask for a Gemini or OpenRouter key if one is missing. `npx claude-mem install` is unchanged.\n- **My Work summaries stop retrying unusable model answers forever** (#6039, thanks @mohitdixit02, reported by @adminwat in #6037). When the model's answer failed validation, wasn't JSON or came back empty, the same unchanged request was resent every minute with no end. One report measured 104,869 calls, and the constant load starved a local Ollama runner. Each request version now gets at most 3 tries with a growing wait, then waits until its input or settings change. The card shows the actual reason. Thanks @balabommablock-cpu for testing and finding the empty-answer case.\n\n## Fixes\n\n- **Lower observer cost by default** (#6031, thanks @kartik70, closes #5023). The observer's conversation budget drops from 400,000 to 100,000 characters (about 100K to about 26K tokens per turn in the issue's measurement). Installs that still hold the old shipped default move once; a value you set yourself is kept.\n- **Redaction:** Heroku API keys and Atlassian API tokens are now removed before storage (#6046, thanks @kevin9327).\n- **TeamBrain:** relayed text can no longer pass as claude-mem's own headings, fences or rules (`~~~`, `***`, `___`, setext `===`) (#6048, thanks @kevin9327).\n- **Work state:** `GET /api/work-state/export` returns the complete history of a list when it is too long for an MCP reply, and shortened MCP reads now say so and point to it (#6049, thanks @Jeremy891102, closes #6043).\n- **My Work** (thanks @Afloat16):\n  - A checked request is unchecked again when a new deliverable revision or published PR changes its result (#5891).\n  - The first goals map of a long prompt history runs in checkpointed batches instead of one oversized question that fails and repeats (#6001).\n  - Resolving original requests no longer rescans the whole prompt window per conversation (#6022).\n- **Smart file read:** function signatures end at the real body boundary in every supported language, so destructured parameters and default objects stay in the outline and are searchable (#6029, thanks @Afloat16).\n- **Gemini CLI:** `npx claude-mem gemini install` finds a worker installed only in the plugin cache instead of reporting it missing (#6032, thanks @Kirat0201).\n- **Memory:** replaying an older native memory note uses an index instead of scanning project history inside the write transaction (#6016, thanks @Afloat16).\n\n## New examples and docs\n\n- Obsidian: an opt-in, one-way export of selected memories into an existing vault, never overwriting your notes (#6051, thanks @Jeremy891102, closes #5943).\n- Pipecat: an explicit project-memory pipeline example (#6050, thanks @Jeremy891102, closes #5946).\n- elizaOS: a verified explicit-memory example (#6035, thanks @Kirat0201, closes #5914).\n- ContextForge: a private recall workflow (#6033, thanks @Kirat0201, closes #5935).\n",
-  "mentions_count": 8
+  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v15.18.3",
+  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v15.18.3",
+  "body": "## Critical fixes\n\n- **Codex keeps recording after claude-mem updates** (#6058, thanks @wiesenthal). Codex approves a hook that ships inside a plugin against a fingerprint of the plugin's whole folder. Every claude-mem update rewrites that folder, so after every update Codex switched all seven claude-mem hooks off (\"plugin contents changed; hook approval required\") and Codex sessions stopped being saved, with no message. The installer now registers claude-mem's Codex hooks in your own `~/.codex/hooks.json`, and each hook runs the on-PATH `claude-mem` launcher, which finds the newest install by itself. Codex trusts a hook in `hooks.json` by its own definition and position, so one approval now lasts across updates. Other tools' hooks in that file are kept in place, a second install changes nothing, a `hooks.json` that can't be parsed is refused and left untouched, and uninstall removes only claude-mem's entries. Turning the claude-mem plugin off in Codex still stops capture. `npx claude-mem doctor` has a new `Codex hooks` row that warns when the plugin is on but its hooks are missing from `hooks.json`.\n\n  **Codex users: do this once after updating.**\n  1. Run `npx claude-mem install` and select Codex. `npx claude-mem update` and auto-update don't move the hooks, because older installers saved no agent selection. The installer prints `Registered 7 claude-mem hooks in <codex home>/hooks.json`.\n  2. Open interactive Codex, run `/hooks`, and approve the seven claude-mem hooks. `codex exec` can't ask for approval, so do this in interactive Codex first.\n\n  After that, updates don't need a new approval. Codex asks again only when a claude-mem hook's definition changes, when claude-mem adds a hook, or when another tool's hook listed before claude-mem's is removed.\n\n## Improvements\n\n- **Optional local API token for the worker API and MCP HTTP transport** (#6056, thanks @kartik70, closes #5141). This is for machines with more than one OS user. It is off by default and nothing changes unless you set it. Set `CLAUDE_MEM_LOCAL_API_TOKEN` in `~/.claude-mem/settings.json`, and restart the worker and the MCP HTTP server. After that, the worker API and the MCP HTTP transport refuse any request that doesn't carry the token (`X-Claude-Mem-Token` or `Authorization: Bearer`), except the health checks. Open the viewer as `/?token=...` or `/viewer?token=...`. The token can only be set in the file: the settings API can't set or clear it, and it is masked when read. `omp`, `hermes` and `openclaw` don't send the token yet. See \"Local API Token\" in the configuration docs.\n- **The quota fallback warning names both providers** (#6071, thanks @bulanovk). When the quota fallback moves memory work to another provider, the worker log now names the provider you selected and the one actually doing the work, says when the stand-in spends your Anthropic account, and names `CLAUDE_MEM_QUOTA_FALLBACK_PROVIDER=off` to turn it off. The default fallback is unchanged.\n- **n8n workflow for saving and finding memories** (#6066, thanks @Kirat0201, closes #5923). An importable n8n workflow saves a note, checks the worker confirmed the save, then searches and retrieves it within the chosen project. It is inactive until you run it and adds no automatic capture. Setup is in the new n8n docs page.\n\n## Fixes\n\n- smart-read (thanks @Afloat16):\n  - Getters and setters with the same name now unfold separately (#6060).\n  - Markdown heading levels are kept as written (#6064).\n  - Pascal routine bodies are found even when the declaration's case differs (#6063).\n  - Python docstrings keep their statement ranges (#6057).\n  - Captured source is parsed in native batches (#6059).\n- The observation parser accepts XML whitespace before tag delimiters (#6065, thanks @Afloat16).\n- Globstar exclusions now also apply to paths that contain line terminators (#6061, thanks @Afloat16).\n- Cost report: repository-wide wins are looked up only when asked for explicitly (#6081), and named steering relays are recognized (#6082) (thanks @Kirat0201).\n- The installation guide lists the real Node.js and Bun minimums (#6076, thanks @DeryFerd).\n\n## CI and tests\n\n- The publish and ods-native jobs pin Bun instead of using the newest release (#6075), and CI now runs the hook-io and spawn-env checks (#6074) (thanks @DeryFerd).\n- Windows test fixes: temp-dir cleanup retries, per-platform memory paths, and paused-pipe hook cases skipped where Node can't run them (#6072, #6073, thanks @DeryFerd). The sync-hub test stub is typed so the package typechecks (#6077, thanks @DeryFerd).\n- The #4689 env-fallback test no longer depends on a real Claude login on the machine (#6068, thanks @bulanovk).\n",
+  "reactions": {
+    "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/443377304/reactions",
+    "total_count": 1,
+    "+1": 1,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "mentions_count": 6
 }
