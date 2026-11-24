@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/454968417",
-  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/454968417/assets",
-  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/454968417/assets{?name,label}",
-  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v16.1.0",
-  "id": 454968417,
+  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/456343807",
+  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/456343807/assets",
+  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/456343807/assets{?name,label}",
+  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v16.1.2",
+  "id": 456343807,
   "author": {
     "login": "github-actions[bot]",
     "id": 41898282,
@@ -25,20 +25,20 @@
     "user_view_type": "public",
     "site_admin": false
   },
-  "node_id": "RE_kwDOPng1J84bHkRh",
-  "tag_name": "v16.1.0",
-  "target_commitish": "febafe47c7db20dc4825f353231b56c62b3ab269",
-  "name": "v16.1.0",
+  "node_id": "RE_kwDOPng1J84bM0D_",
+  "tag_name": "v16.1.2",
+  "target_commitish": "a046a6a9fd8fb1cc56466194487dca94e8212409",
+  "name": "v16.1.2",
   "draft": false,
   "immutable": false,
   "prerelease": false,
-  "created_at": "2026-11-23T03:55:39Z",
-  "updated_at": "2026-11-23T03:55:41Z",
-  "published_at": "2026-11-23T03:55:41Z",
+  "created_at": "2026-11-24T05:29:01Z",
+  "updated_at": "2026-11-24T05:29:04Z",
+  "published_at": "2026-11-24T05:29:04Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v16.1.0",
-  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v16.1.0",
-  "body": "### Standalone Cloud Sync in the installer\n\n- Run `npx claude-mem install` and choose Cloud Sync to connect your devices while keeping your current memory provider. The monthly plan requires a card and includes a full 30-day trial, followed by $12 per month. The annual plan costs $99 upfront.\n- The installer carries your chosen plan into checkout and verifies that cmem.ai confirms the same offer. Hosted tokens are a separate, optional purchase. Existing bundled Pro setups keep their saved settings.\n- You can skip Cloud Sync during setup and keep memory local. Once the installer applies a choice, returning to the plan screen or reloading it preserves that choice."
+  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v16.1.2",
+  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v16.1.2",
+  "body": "### Installer improvements\n\n- On phones, **Set up my agents** stays within reach while you review the detected tools or expand the agent list.\n- A fresh installation shows how many agents you set up and what Cloud Sync can remember across devices. Setup only offers scan details when it has results or a reading error to show."
 }
