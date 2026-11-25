@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/456343807",
-  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/456343807/assets",
-  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/456343807/assets{?name,label}",
-  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v16.1.2",
-  "id": 456343807,
+  "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/457738084",
+  "assets_url": "https://api.github.com/repos/thedotmack/claude-mem/releases/457738084/assets",
+  "upload_url": "https://uploads.github.com/repos/thedotmack/claude-mem/releases/457738084/assets{?name,label}",
+  "html_url": "https://github.com/thedotmack/claude-mem/releases/tag/v16.1.4",
+  "id": 457738084,
   "author": {
     "login": "github-actions[bot]",
     "id": 41898282,
@@ -25,20 +25,32 @@
     "user_view_type": "public",
     "site_admin": false
   },
-  "node_id": "RE_kwDOPng1J84bM0D_",
-  "tag_name": "v16.1.2",
-  "target_commitish": "a046a6a9fd8fb1cc56466194487dca94e8212409",
-  "name": "v16.1.2",
+  "node_id": "RE_kwDOPng1J84bSIdk",
+  "tag_name": "v16.1.4",
+  "target_commitish": "11fdec893eb4ece18ff946758e75e82c92aff71b",
+  "name": "v16.1.4",
   "draft": false,
   "immutable": false,
   "prerelease": false,
-  "created_at": "2026-11-24T05:29:01Z",
-  "updated_at": "2026-11-24T05:29:04Z",
-  "published_at": "2026-11-24T05:29:04Z",
+  "created_at": "2026-11-25T06:37:55Z",
+  "updated_at": "2026-11-25T06:37:57Z",
+  "published_at": "2026-11-25T06:37:57Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v16.1.2",
-  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v16.1.2",
-  "body": "### Installer improvements\n\n- On phones, **Set up my agents** stays within reach while you review the detected tools or expand the agent list.\n- A fresh installation shows how many agents you set up and what Cloud Sync can remember across devices. Setup only offers scan details when it has results or a reading error to show."
+  "tarball_url": "https://api.github.com/repos/thedotmack/claude-mem/tarball/v16.1.4",
+  "zipball_url": "https://api.github.com/repos/thedotmack/claude-mem/zipball/v16.1.4",
+  "body": "- Setup offers a 30-day Cloud Sync trial without a credit card. People installing directly or with an agent can choose a private, signed-in My Work view. Explicit local and custom sync settings are preserved.\n- The cloud viewer uses the current account to load synced work, evidence and review changes. Returning to a tab verifies the signed-in account before showing its contents. Retrying a save after a lost response reuses the same action ID.\n- During the trial, My Work offers optional guidance for trying cross-agent sync and shows when to add a payment method to continue.",
+  "reactions": {
+    "url": "https://api.github.com/repos/thedotmack/claude-mem/releases/457738084/reactions",
+    "total_count": 1,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 1,
+    "eyes": 0
+  }
 }
